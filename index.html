@@ -3,105 +3,103 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Lorenzo Matellán - Profesional</title>
+    <title>CV David Lorenzo - Consultor de Riesgos y Transformación Bancaria</title>
     <style>
-        /* --- VARIABLES DE DISEÑO (SOPORTE DE TEMAS) --- */
+        /* --- CONFIGURACIÓN DE VARIABLES Y TEMAS DE VANGUARDIA --- */
         :root {
-            --bg-principal: #f4f7f9;
+            --bg-principal: #f8fafc;
             --bg-tarjeta: #ffffff;
-            --texto-principal: #2c3e50;
-            --texto-secundario: #606f7b;
-            --color-acentos: #0077b5; /* Azul LinkedIn corporativo */
-            --color-acentos-hover: #00598a;
+            --texto-principal: #0f172a;
+            --texto-secundario: #475569;
+            --color-acentos: #2563eb; 
+            --color-acentos-hover: #1d4ed8;
             --borde: #e2e8f0;
-            --sombra: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --sombra-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-            --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --sombra: 0 4px 20px -2px rgba(50, 50, 93, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+            --sombra-hover: 0 20px 40px -5px rgba(50, 50, 93, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+            --transicion: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            --gradiente: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         }
 
         [data-theme="dark"] {
-            --bg-principal: #0f172a;
-            --bg-tarjeta: #1e293b;
-            --texto-principal: #f8fafc;
+            --bg-principal: #090d16;
+            --bg-tarjeta: #131c2e;
+            --texto-principal: #f1f5f9;
             --texto-secundario: #94a3b8;
             --color-acentos: #38bdf8;
             --color-acentos-hover: #7dd3fc;
-            --borde: #334155;
-            --sombra: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-            --sombra-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+            --borde: #1e293b;
+            --sombra: 0 4px 30px rgba(0, 0, 0, 0.4);
+            --sombra-hover: 0 20px 50px rgba(0, 0, 0, 0.6);
+            --gradiente: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
         }
 
-        /* --- ESTILOS GENERALES --- */
+        /* --- ESTILOS BASE Y TIPOGRAFÍA --- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-principal);
             color: var(--texto-principal);
             transition: var(--transicion);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            line-height: 1.7;
+            padding: 3rem 1.5rem;
         }
 
         .contenedor {
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        /* --- CONTROLES / BOTONES SUPERIORES --- */
+        /* --- MENÚ DE INTERACCIÓN SUPERIOR --- */
         .controles-superiores {
             display: flex;
             justify-content: flex-end;
             gap: 1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
         }
 
         .btn {
             background-color: var(--bg-tarjeta);
             color: var(--texto-principal);
             border: 1px solid var(--borde);
-            padding: 0.75rem 1.5rem;
-            border-radius: 50px;
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
             cursor: pointer;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.6rem;
             box-shadow: var(--sombra);
             transition: var(--transicion);
         }
 
         .btn:hover {
-            transform: translateY(-3px);
+            transform: translateY(-4px);
             box-shadow: var(--sombra-hover);
             border-color: var(--color-acentos);
             color: var(--color-acentos);
         }
 
-        .btn:active {
-            transform: translateY(-1px);
-        }
-
-        /* --- CABECERA PRINCIPAL --- */
+        /* --- CABECERA PREMIUM --- */
         header {
             background-color: var(--bg-tarjeta);
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 3rem;
+            border-radius: 24px;
             box-shadow: var(--sombra);
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2.5rem;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
             border: 1px solid var(--borde);
-            transition: var(--transicion);
             position: relative;
             overflow: hidden;
+            transition: var(--transicion);
         }
 
         header::before {
@@ -109,23 +107,32 @@
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
+            right: 0;
             height: 6px;
-            background: linear-gradient(90deg, var(--color-acentos), var(--color-acentos-hover));
+            background: var(--gradiente);
+        }
+
+        .perfil-info {
+            flex: 1;
+            min-width: 300px;
         }
 
         .perfil-info h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 800;
-            color: var(--texto-principal);
+            letter-spacing: -0.03em;
             margin-bottom: 0.5rem;
+            background: var(--gradiente);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .perfil-info .subtitulo {
-            font-size: 1.25rem;
-            color: var(--color-acentos);
+        .perfil-info .titular {
+            font-size: 1.2rem;
+            color: var(--texto-principal);
             font-weight: 600;
-            margin-bottom: 1rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
         }
 
         .enlace-linkedin {
@@ -134,81 +141,94 @@
             color: var(--texto-secundario);
             text-decoration: none;
             font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-principal);
+            border: 1px solid var(--borde);
             transition: var(--transicion);
         }
 
         .enlace-linkedin:hover {
             color: var(--color-acentos);
+            border-color: var(--color-acentos);
             transform: translateX(5px);
         }
 
         .qr-contenedor {
             background: white;
-            padding: 0.75rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.5rem;
             transition: var(--transicion);
+            border: 1px solid var(--borde);
         }
 
         .qr-contenedor:hover {
-            transform: scale(1.05) rotate(1deg);
+            transform: scale(1.08) rotate(2deg);
+            box-shadow: var(--sombra-hover);
         }
 
         .qr-contenedor img {
-            width: 120px;
-            height: 120px;
+            width: 110px;
+            height: 110px;
         }
 
         .qr-contenedor span {
-            font-size: 0.75rem;
-            color: #2c3e50;
-            font-weight: bold;
+            font-size: 0.7rem;
+            color: #0f172a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        /* --- SECCIÓN EXPERIENCIA --- */
+        /* --- DISEÑO DE SECCIONES --- */
+        .seccion {
+            margin-bottom: 3.5rem;
+        }
+
         .seccion-titulo {
-            font-size: 1.75rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
             position: relative;
-            display: inline-block;
-            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         .seccion-titulo::after {
             content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background-color: var(--color-acentos);
-            border-radius: 2px;
+            flex: 1;
+            height: 2px;
+            background-color: var(--borde);
         }
 
-        .bloque-experiencia {
+        .bloque-contenido {
             display: flex;
             flex-direction: column;
             gap: 2rem;
         }
 
-        .tarjeta-experiencia {
+        /* --- TARJETAS INTERACTIVAS CON EFECTO DINÁMICO --- */
+        .tarjeta-dinamica {
             background-color: var(--bg-tarjeta);
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 2.5rem;
+            border-radius: 20px;
             border: 1px solid var(--borde);
             box-shadow: var(--sombra);
             transition: var(--transicion);
-            cursor: pointer;
             position: relative;
+            overflow: hidden;
         }
 
-        /* Efecto dinámico de movimiento e interacción al pasar el ratón */
-        .tarjeta-experiencia:hover {
-            transform: translateY(-6px) scale(1.01);
+        /* Efecto de movimiento avanzado e iluminación dinámica */
+        .tarjeta-dinamica:hover {
+            transform: translateY(-8px) scale(1.015);
             box-shadow: var(--sombra-hover);
             border-color: var(--color-acentos);
         }
@@ -218,94 +238,113 @@
             justify-content: space-between;
             align-items: flex-start;
             flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .puesto-titulo {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             color: var(--texto-principal);
             font-weight: 700;
+            letter-spacing: -0.01em;
         }
 
         .compania-info {
             font-size: 1.1rem;
             color: var(--color-acentos);
             font-weight: 600;
+            margin-bottom: 0.5rem;
         }
 
         .metadatos {
             font-size: 0.9rem;
             color: var(--texto-secundario);
             display: flex;
-            gap: 1rem;
+            gap: 0.75rem;
             flex-wrap: wrap;
-            margin-bottom: 1rem;
-            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
         }
 
         .descripcion {
             color: var(--texto-secundario);
             text-align: justify;
-            white-space: pre-line;
             font-size: 0.975rem;
+            white-space: pre-line;
         }
 
-        /* Sub-roles dentro de una misma entidad */
-        .sub-rol {
+        /* Estructura específica para sub-roles múltiples */
+        .contenedor-subroles {
             margin-top: 1.5rem;
-            padding-left: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sub-rol {
+            padding-left: 1.5rem;
             border-left: 3px solid var(--color-acentos);
+            position: relative;
         }
 
         .sub-rol-titulo {
             font-weight: 700;
             color: var(--texto-principal);
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
         }
 
-        /* --- CONFIGURACIÓN DE IMPRESIÓN (PDF) --- */
+        /* --- CONFIGURACIÓN DE IMPRESIÓN EXCLUSIVA (PDF PERFECTO) --- */
         @media print {
             body {
                 background-color: white !important;
                 color: black !important;
-                padding: 0;
+                padding: 0 !important;
             }
             .no-print {
                 display: none !important;
             }
-            .tarjeta-experiencia {
+            .tarjeta-dinamica {
                 box-shadow: none !important;
                 border: none !important;
                 border-bottom: 1px solid #cbd5e1 !important;
+                border-radius: 0 !important;
+                padding: 1.5rem 0 !important;
                 page-break-inside: avoid;
-                padding: 1rem 0 !important;
             }
-            .tarjeta-experiencia:hover {
+            .tarjeta-dinamica:hover {
                 transform: none !important;
             }
             header {
                 box-shadow: none !important;
                 border: none !important;
-                border-bottom: 2px solid black !important;
-                padding: 1rem 0 !important;
+                border-bottom: 3px solid #000 !important;
+                padding: 1.5rem 0 !important;
+                border-radius: 0 !important;
             }
             header::before {
                 display: none;
             }
             .qr-contenedor {
                 border: 1px solid #000;
+                background: white !important;
+            }
+            .seccion {
+                margin-bottom: 2rem;
             }
         }
 
-        /* Responsividad básica */
         @media (max-width: 768px) {
             header {
                 flex-direction: column;
                 align-items: flex-start;
+                padding: 2rem;
             }
             .qr-contenedor {
                 align-self: center;
+            }
+            .perfil-info h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -314,68 +353,66 @@
 
     <div class="contenedor">
         
-        <!-- Bloque de Botones Interactivos -->
+        <!-- Barra de Control de Utilidades Interactivas -->
         <div class="controles-superiores no-print">
-            <button class="btn" id="btn-tema" title="Cambiar modo de color">
+            <button class="btn" id="btn-tema" title="Alternar tema visual">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
                 <span>Modo Oscuro</span>
             </button>
-            <button class="btn" id="btn-pdf" title="Exportar este CV a PDF">
+            <button class="btn" id="btn-pdf" title="Descargar como documento PDF">
                 <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
                 <span>Imprimir en PDF</span>
             </button>
         </div>
 
-        <!-- Cabecera del Perfil Profesional -->
+        <!-- Encabezado de Identidad Profesional -->
         <header>
             <div class="perfil-info">
-                <h1>Lorenzo Matellán</h1>
-                <div class="subtitulo">Especialista en Riesgos de Crédito, Gestión del Cambio y Medios de Pago</div>
+                <h1>David Lorenzo</h1>
+                <div class="titular">Consultor de Riesgos y Transformación Bancaria | CIRBE · Riesgo Crediticio · PBC · Gestión del Cambio · Procesos y Mejora Continua</div>
                 <a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank" class="enlace-linkedin">
                     <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
                     linkedin.com/in/lorenzomatellan
                 </a>
             </div>
             
-            <!-- Generación dinámica de código QR utilizando API abierta y pública -->
+            <!-- Código QR Dinámico Vinculado de forma precisa -->
             <div class="qr-contenedor">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/lorenzomatellan" alt="Código QR de LinkedIn">
-                <span>¡Escanéame!</span>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/lorenzomatellan" alt="Código QR del perfil de LinkedIn">
+                <span>Escanéame</span>
             </div>
         </header>
 
-        <!-- Sección de Experiencia Laboral -->
-        <main>
+        <!-- Bloque Principal de Experiencia Profesional -->
+        <section class="seccion">
             <h2 class="seccion-titulo">Experiencia</h2>
-            <div class="bloque-experiencia">
+            <div class="bloque-contenido">
 
-                <!-- Puesto 1 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 1: Bankinter -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Analista de Riesgos de Crédito (No Consumo)</div>
-                            <div class="compania-info">Santander · Jornada completa</div>
+                            <div class="compania-info">Bankinter · Jornada completa</div>
                         </div>
                     </div>
                     <div class="metadatos">
                         <span>jun. 2024 - may. 2026 · 2 años</span>
                         <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
                     </div>
-                    <div class="descripcion">
-                        Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RABC/RAC, IFRS9, CIRBE y balances financieros para clientes corporativos, patrimoniales y empresas de alto perfil. Las operaciones se canalizan directamente a través de la Comisión de Riesg y Factores estratégicos como Estructur, bcos y Acuerdos.
+                    <div class="descripcion">Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero para clientes empresariales, patrimoniales y extranjeros de alto perfil. Las operaciones se canalizan directamente a través de la Dirección de Red y Partners estratégicos como Deloitte, Indra y Accenture.
 
-                        Gestiono una media de 10-12 expedientes diarios de alta complejidad (pignoraciones, ampliaciones, lombardos, créditos internacionales, líneas de crédito, subrogaciones, novaciones, extinciones de condominio hipotecario, reestructuraciones y operaciones especiales para farmacias o corporaciones por Partner), con facultades autónomas de aprobación hasta 1,5 M€.
+                    Gestiono una media de 10-12 expedientes diarios de alta complejidad (pignoraciones, ampliaciones, lombardos, créditos internacionales, líneas de crédito, subrogaciones, novaciones, extinciones de condominio, hipotecas suelo-edificación y operaciones especiales para farmacias o constructoras por Partner), con facultades autónomas de aprobación hasta 1,5 M€.
 
-                        Defendido ante el Comité de Riesgos operaciones de alto valor, incluyendo reestructuraciones complejas para clientes corporativos y patrimoniales, incluidos interconex. internacionales con adquisiciones en España.
+                    Defiendo ante el Comité de Dirección operaciones de alto valor, influyendo en decisiones estratégicas para clientes corporativos y patrimoniales, incluidos inversores internacionales con adquisiciones en España.
 
-                        Evalúo valoraciones patrimoniales mediante Cuadro de Valoración Patrimonial Neta, analizando RABC/RAC, IFRS9, balances financieros, scoring, EBITDA, garantías reales, cash flow, POAD y contrastando datos con CIRBE y Comité Repos internacionales.
+                    Evalúo valoraciones patrimoniales mediante Cuadro de Valoración Patrimonial Neto, analizando RARORAC, LTV/LTC, esfuerzo financiero, scoring, EBITDA, garantías reales, cash flow, PD/LGD, y contrastando datos con CIRBE y Credit Reports internacionales.
 
-                        Coordino con equipos internos de riesgos, negocio y cumplimiento para garantizar la conformidad regulatoria en materia de PBC/FT.
-                    </div>
+                    Coordino con equipos internos de riesgos, negocio y cumplimiento para garantizar la conformidad regulatoria en materia de PBC/FT.</div>
                 </div>
 
-                <!-- Puesto 2 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 2: Santander -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
@@ -383,41 +420,38 @@
                         </div>
                     </div>
                     <div class="metadatos">
-                        <span>ene. 2020 - may. 2024 · 4 años 5 meses</span>
+                        <span>feb. 2019 - may. 2024 · 5 años 4 meses</span>
                         <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
                     </div>
-                    <div class="descripcion">
-                        (Roles Múltiples) Contribuyendo a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, bca.elcty digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas. Total acumulado de +7 años y 6 meses de actividad en la entidad.
-                        
+                    <div class="descripcion">(Roles Múltiples)
+                    Contribuí a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, fraude y digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas (total acumulado de ~2 años y 4 meses de actividad en la entidad).
+                    
+                    <div class="contenedor-subroles">
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">• (03/2023 - 04/2024) | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago</div>
-                            Impacto formación sobre herramientas digitales y tecnologías multi-dispositivos en medios de pago, mejorando la adopción de plataformas, proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.
+                            <div class="sub-rol-titulo">• (10/2023 – 05/2024 | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago)</div>
+                            Imparto formación sobre herramientas digitales y tecnologías multidivisa en medios de pago, mejorando la adopción de plataformas; proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.
                         </div>
-
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">• (03/2021 - 03/2023) | Gestor del Cambio</div>
-                            Configuro reglas en motores de producción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos, aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.
+                            <div class="sub-rol-titulo">• (02/2023 – 09/2023 | Gestor del Cambio)</div>
+                            Configuro reglas en motores de predicción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos; aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.
                         </div>
-
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">• (10/2020 - 03/2021) | Consultor Digital</div>
-                            Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas, automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.
+                            <div class="sub-rol-titulo">• (10/2022 – 01/2023 | Consultor Digital)</div>
+                            Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas; automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.
                         </div>
-
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">• (07/2020 - 09/2020) | Supervisor Remoto de la Unidades Comerciales - USAC</div>
-                            Analizo fraudes en medios de pago, supervisando actividades comerciales remotas, controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.
+                            <div class="sub-rol-titulo">• (01/2022 – 08/2022 | Supervisor Remoto de Actividades Comerciales – SRAC)</div>
+                            Analizo fraudes en medios de pago, supervisando actividades comerciales remotas; controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.
                         </div>
-
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">• (01/2020 - 06/2020) | Cumplimiento Normativo - PBC</div>
+                            <div class="sub-rol-titulo">• (02/2019 – 04/2019 | Cumplimiento Normativo – PBC)</div>
                             Apoyo directo a la red comercial en prevención de blanqueo de capitales y financiación al terrorismo (PBC/FT), análisis de documentación y actualización de bases de datos.
                         </div>
-                    </div>
+                    </div></div>
                 </div>
 
-                <!-- Puesto 3 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 3: RSI -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Gestor del Cambio y Formador Bancario</div>
@@ -428,23 +462,22 @@
                         <span>oct. 2019 - ene. 2022 · 2 años 4 meses</span>
                         <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
                     </div>
-                    <div class="descripcion">
-                        Participé en la migración tecnológica y en la formación de equipos dentro del ecosistema RSI, gestionando integraciones API para entidades bancarias clave y desarrollando programas de capacitación en banca electrónica, soporte operativo y medios de pago durante más de dos años.
+                    <div class="descripcion">Participé en la migración tecnológica y en la formación de equipos dentro del ecosistema RSI, gestionando integraciones API para entidades financieras clave y desarrollando programas de capacitación en banca electrónica, soporte operativo y medios de pago durante más de dos años.
 
+                    <div class="contenedor-subroles">
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">03/2021 - 01/2022 | Gestor del Cambio / Formador Bancario</div>
-                            Lideré equipos en la implantación de nuevos sistemas tecnológicos, gestionando integraciones API con entidades como Rural Via, Vallbanc, El Voló, SCI Renault Crédit e ICF durante los procesos de onboarding. Proporcioné soporte funcional y resolución de incidencias en las plataformas Iris y Ruralvia.
+                            <div class="sub-rol-titulo">01/2022 – 02/2022 | Gestor del Cambio / Formador Bancario</div>
+                            Formé equipos en la implantación de nuevos sistemas tecnológicos, gestionando integraciones API con entidades como Fiare, Vallbanc, B-NexT, RCI Renault Credit e ICF durante los procesos de onboarding. Proporcioné soporte funcional y resolución de incidencias en las plataformas Iris y Pórtico.
                         </div>
-
                         <div class="sub-rol">
-                            <div class="sub-rol-titulo">10/2019 - 02/2021 | Formador de Formadores</div>
-                            Diseñé y ejecuté programas de capacitación en banca electrónica y medios de pago (Iris, Cajas), fortaleciendo las competencias de soporte y atención operativa de los equipos internos.
+                            <div class="sub-rol-titulo">02/2020 – 12/2021 | Formador de Formadores</div>
+                            Diseñé y ejecuté programas de capacitación en banca electrónica y medios de pago (Iris, Citrix), fortaleciendo las competencias de soporte y atención operativa de los equipos internos.
                         </div>
-                    </div>
+                    </div></div>
                 </div>
 
-                <!-- Puesto 4 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 4: Banco Popular -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Gestor banca</div>
@@ -452,33 +485,29 @@
                         </div>
                     </div>
                     <div class="metadatos">
-                        <span>ago. 2013 - ene. 2019 · 5 años 6 meses</span>
+                        <span>ago. 2012 - ene. 2019 · 6 años 6 meses</span>
                         <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
                     </div>
-                    <div class="descripcion">
-                        Asesoré y comercialicé productos financieros (ahorro, inversión, préstamos, fondos y seguros), gestioné operaciones de caja y resolví incidencias operativas, contribuyendo a la fidelización y eficiencia en sucursal.
-                    </div>
+                    <div class="descripcion">Asesoré a clientes en productos financieros (ahorro, inversión, préstamos, fondos y seguros), gestioné operaciones de caja y resolví incidencias operativas, contribuyendo a la fidelización y eficiencia en sucursal.</div>
                 </div>
 
-                <!-- Puesto 5 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 5: Bankia -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Técnico CAU</div>
-                            <div class="compania-info">Sercon · Jornada completa</div>
+                            <div class="compania-info">Bankia · Jornada completa</div>
                         </div>
                     </div>
                     <div class="metadatos">
-                        <span>ago. 2010 - ago. 2013 · 3 años 1 mes</span>
+                        <span>ago. 2010 - ago. 2012 · 2 años 1 mes</span>
                         <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
                     </div>
-                    <div class="descripcion">
-                        Proporcioné soporte integral de 1º nivel, resolviendo incidencias técnicas en redes y sistemas; configuré instalaciones críticas (PCs, impresoras, UMTS) y apoyé en la gestión de productos bancarios.
-                    </div>
+                    <div class="descripcion">Proporcioné soporte Helpdesk de 2º nivel, resolviendo incidencias técnicas en situ y remotas; configuré instalaciones críticas (PCs, impresoras, UMTS) y apoyé contratación de productos bancarios.</div>
                 </div>
 
-                <!-- Puesto 6 -->
-                <div class="tarjeta-experiencia">
+                <!-- Registro 6: ING -->
+                <div class="tarjeta-dinamica">
                     <div class="tarjeta-encabezado">
                         <div>
                             <div class="puesto-titulo">Fraud Manager Means of Payment</div>
@@ -489,18 +518,50 @@
                         <span>abr. 2006 - ago. 2010 · 4 años 5 meses</span>
                         <span>· Madrid, Comunidad de Madrid, España</span>
                     </div>
-                    <div class="descripcion">
-                        Controlé fraudes en tarjetas y transferencias, gestionando alertas ACI, Fico(sp) y dD; elaboré mapas de riesgos, ofrecio soporte online y cumplí normativa PBC/FT.
+                    <div class="descripcion">Controlé fraudes en tarjetas y transferencias, gestionando alertas ACI, Redsys y 4B; elaboré mapas de riesgos, atendí banca online y cumplí normativa PBC/FT.</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bloque de Educación y Formación Académica -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">Educación</h2>
+            <div class="bloque-contenido">
+                
+                <!-- Educación 1 -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Master en Fraude y Gestión del Riesgo en los Medios de Pago</div>
+                            <div class="compania-info">Upper Academy</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>nov. 2016 – may. 2017</span>
+                    </div>
+                </div>
+
+                <!-- Educación 2 -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Ingeniería en Tecnologías de la Información</div>
+                            <div class="compania-info">Universidad Europea</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>sept. 2010 – jul. 2016</span>
                     </div>
                 </div>
 
             </div>
-        </main>
+        </section>
     </div>
 
-    <!-- LÓGICA INTERACTIVA EN JAVASCRIPT -->
+    <!-- MÓDULOS DE COMPORTAMIENTO INTERACTIVO -->
     <script>
-        // --- 1. BOTÓN CLARO / OSCURO ---
+        // --- CONMUTADOR DE TEMA DINÁMICO ---
         const btnTema = document.getElementById('btn-tema');
         const root = document.documentElement;
         
@@ -521,22 +582,28 @@
             }
         });
 
-        // --- 2. BOTÓN DE IMPRESIÓN A PDF ---
+        // --- SISTEMA DE IMPRESIÓN PARA PDF ---
         const btnPdf = document.getElementById('btn-pdf');
         btnPdf.addEventListener('click', () => {
             window.print();
         });
 
-        // --- 3. EFECTO DINÁMICO EXTRA AL PASAR EL RATÓN (Opcional/Avanzado) ---
-        // Las tarjetas ya se mueven con CSS, pero añadimos un sutil efecto de brillo 3D
-        const tarjetas = document.querySelectorAll('.tarjeta-experiencia');
+        // --- INTERACCIÓN KINÉTICA AVANZADA (Efecto de inclinación interactiva) ---
+        const tarjetas = document.querySelectorAll('.tarjeta-dinamica');
         tarjetas.forEach(tarjeta => {
             tarjeta.addEventListener('mousemove', (e) => {
                 const rect = tarjeta.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                tarjeta.style.setProperty('--mouse-x', `${x}px`);
-                tarjeta.style.setProperty('--mouse-y', `${y}px`);
+                
+                const valorX = (y - rect.height / 2) / 20;
+                const valorY = -(x - rect.width / 2) / 40;
+
+                tarjeta.style.transform = `perspective(1000px) translateY(-10px) rotateX(${valorX}deg) rotateY(${valorY}deg) scale(1.02)`;
+            });
+
+            tarjeta.addEventListener('mouseleave', () => {
+                tarjeta.style.transform = 'perspective(1000px) translateY(0) rotateX(0deg) rotateY(0deg) scale(1)';
             });
         });
     </script>
