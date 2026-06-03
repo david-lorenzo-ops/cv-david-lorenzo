@@ -1,651 +1,544 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>David Lorenzo | Banca & Riesgos</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <style>
-    /* PALETA: Verde Esmeralda y Dorado Suave */
-    :root {
-      --primary: #00564e; /* Verde Esmeralda Oscuro para títulos y fondo principal */
-      --accent: #00a896;  /* Verde Esmeralda más claro para acentos */
-      --gold: #ffbe0b;    /* Dorado Suave para highlights */
-      --bg: #f7fcfb;      /* Fondo muy claro, casi blanco con un toque verde */
-      --card: rgba(255, 255, 255, 0.97);
-      --text: #2c3e50;    /* Texto gris oscuro profesional */
-      --light: #7f8c8d;   /* Texto gris medio para detalles */
-      --shadow: 0 25px 50px rgba(0,0,0,0.08);
-    }
-    
-    [data-theme="dark"] {
-      --primary: #ffbe0b; /* Dorado para títulos/elementos principales en oscuro */
-      --accent: #00a896;  /* Verde Esmeralda para acentos en oscuro */
-      --gold: #ffbe0b;
-      --bg: #1a2a2a;      /* Fondo oscuro para modo nocturno */
-      --card: rgba(26, 42, 42, 0.97); /* Tarjetas ligeramente transparentes en oscuro */
-      --text: #e0f2f1;    /* Texto claro en oscuro */
-      --light: #90a4ae;   /* Texto gris claro para detalles en oscuro */
-      --shadow: 0 25px 50px rgba(0,0,0,0.25);
-    }
-    
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #e0f2f1 0%, var(--bg) 100%); 
-      color: var(--text);
-      line-height: 1.7;
-      min-height: 100vh;
-      padding: 2rem;
-      display: flex;
-      justify-content: center;
-      transition: all 0.4s ease;
-    }
-    .cv-master {
-      max-width: 1000px;
-      width: 100%;
-      background: var(--card);
-      backdrop-filter: blur(16px);
-      border-radius: 28px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      border: 1px solid rgba(0, 168, 150, 0.15); 
-      position: relative;
-    }
-    .hero {
-      background: linear-gradient(135deg, var(--primary), #00796b); 
-      color: white;
-      padding: 3rem 2.5rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -50%; left: -50%;
-      width: 200%; height: 200%;
-      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-      animation: pulse 8s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-    }
-    .hero h1 {
-      font-family: 'Playfair Display', serif; 
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-      text-shadow: 0 2px 10px rgba(0,0,0,0.3);
-      color: white; /* Siempre blanco en el hero */
-    }
-    .contact-bar {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .contact-bar a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.6rem 1.2rem;
-      background: rgba(255,255,255,0.15);
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-      /* Aseguramos que el color del icono sea blanco por defecto */
-    }
-    /* CORRECCIÓN CRÍTICA: Aseguramos que el hover cambie el fondo y el color del texto */
-    .contact-bar a:hover { 
-      background: var(--gold); /* Fondo Dorado */
-      color: var(--primary); /* Texto Verde Oscuro */
-      transform: translateY(-3px);
-    }
-    .qr-code {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      width: 80px;
-      height: 80px;
-      background: var(--card);
-      padding: 8px;
-      border-radius: 14px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      border: 2px solid var(--gold);
-    }
-    .summary {
-      padding: 2.5rem;
-      text-align: center;
-      font-size: 1.15rem;
-      background: linear-gradient(to right, #e0f2f1, #ffffff); 
-      border-bottom: 1px solid #e0e0e0;
-      line-height: 1.8;
-    }
-    .section {
-      padding: 2.5rem;
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
-    .section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.9rem;
-      color: var(--primary);
-      margin-bottom: 1.8rem;
-      position: relative;
-      display: inline-block;
-    }
-    .section h2::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 0;
-      width: 80px;
-      height: 4px;
-      background: linear-gradient(to right, var(--accent), var(--gold));
-      border-radius: 2px;
-    }
-    .job-card {
-      background: var(--card);
-      border-radius: 18px;
-      padding: 1.8rem;
-      margin-bottom: 1.8rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border-left: 6px solid var(--accent);
-      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-      position: relative;
-      overflow: hidden;
-      page-break-inside: avoid;
-    }
-    .job-card:hover {
-      transform: translateY(-10px) scale(1.02);
-      box-shadow: 0 25px 50px rgba(0, 168, 150, 0.18); 
-      border-left-color: var(--gold);
-    }
-    .job-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 5px;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.5s ease;
-    }
-    .job-card:hover::before {
-      transform: scaleX(1);
-    }
-    .job-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-bottom: 1rem;
-    }
-    .job-title {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--primary);
-    }
-    .company {
-      font-weight: 600;
-      color: var(--accent);
-      font-size: 1.1rem;
-    }
-    .date {
-      font-size: 0.95rem;
-      color: var(--light);
-      font-style: italic;
-    }
-    .job-card ul {
-      padding-left: 1.4rem;
-      margin-top: 1rem;
-    }
-    .job-card ul li {
-      margin-bottom: 0.7rem;
-      position: relative;
-      font-size: 0.98rem;
-      padding-left: 0.4rem;
-    }
-    .job-card ul li::marker {
-      color: var(--accent);
-      font-weight: bold;
-    }
-    .skills-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.8rem;
-      margin-top: 1.8rem;
-    }
-    .skill-item {
-      background: var(--card); 
-      padding: 1.2rem;
-      border-radius: 16px;
-      border: 1px solid #e2e8f0;
-      transition: all 0.3s ease;
-      page-break-inside: avoid; 
-    }
-    [data-theme="dark"] .skill-item {
-        border-color: rgba(255,255,255,0.1); 
-    }
-    .skill-item:hover {
-      background: linear-gradient(135deg, #fff9e0, #ffe7b2); 
-      transform: translateY(-4px);
-      box-shadow: 0 10px 25px rgba(255, 190, 11, 0.2); 
-    }
-    .skill-name {
-      font-weight: 600;
-      margin-bottom: 0.6rem;
-      color: var(--primary);
-      font-size: 1.05rem;
-    }
-    .progress-bar {
-      height: 10px;
-      background: #e2e8f0;
-      border-radius: 5px;
-      overflow: hidden;
-      position: relative;
-    }
-    .progress {
-      height: 100%;
-      background: linear-gradient(90deg, var(--accent), var(--gold));
-      border-radius: 5px;
-      width: 0;
-      transition: width 1.8s ease;
-    }
-    .controls {
-      position: fixed;
-      bottom: 2rem;
-      right: 2rem;
-      display: flex;
-      gap: 1rem;
-      z-index: 1000;
-    }
-    .ctrl-btn {
-      width: 65px;
-      height: 65px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .ctrl-btn:hover {
-      transform: scale(1.2) rotate(20deg);
-      background: var(--accent);
-    }
-    /* Estilos de impresión */
-    @media print {
-      :root {
-        --primary: #000000;
-        --accent: #000000;
-        --gold: #000000;
-        --bg: #ffffff;
-        --card: #ffffff;
-        --text: #000000;
-        --light: #333333;
-      }
-      body { 
-        background: white !important; 
-        padding: 0; 
-        color: #000 !important; 
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        font-size: 10pt;
-      }
-      .cv-master { 
-        box-shadow: none; 
-        border: none; 
-        max-width: 100%;
-      }
-      .controls, .qr-code { 
-        display: none; 
-      }
-      .job-card:hover, .skill-item:hover { 
-        transform: none; 
-      }
-      .hero {
-        background: none !important;
-        color: #000 !important;
-        padding: 1.5rem 1.5rem;
-        border-bottom: 1px solid #000;
-      }
-      .hero h1 { text-shadow: none; color: #000 !important; font-size: 2.2rem; }
-      .contact-bar { justify-content: flex-start; gap: 0.5rem; flex-wrap: nowrap; }
-      .contact-bar a {
-        background: none !important;
-        color: #000 !important;
-        padding: 0.2rem;
-        font-size: 0.85rem;
-        box-shadow: none;
-      }
-      .contact-bar a i {
-        display: none;
-      }
-      .summary {
-        background: none;
-        font-size: 0.95rem;
-        padding: 1.5rem;
-        border-bottom: none;
-      }
-      .section {
-        padding: 1.5rem;
-        opacity: 1;
-        transform: none;
-      }
-      .section h2 { 
-        color: #000 !important; 
-        font-size: 1.4rem;
-        margin-bottom: 1rem;
-      }
-      .section h2::after { 
-        background: #000 !important; 
-      }
-      .job-card {
-        box-shadow: none;
-        border: 1px solid #ccc;
-        border-left: 4px solid #333;
-        padding: 1rem;
-        margin-bottom: 0.8rem;
-        background: white !important;
-        page-break-inside: avoid;
-      }
-      .job-card ul {
-          margin-top: 0.5rem;
-      }
-      .job-card ul li {
-          font-size: 0.9rem;
-          margin-bottom: 0.4rem;
-      }
-      .job-card:hover { transform: none; }
-      .job-title, .company { color: #000 !important; }
-      .job-card ul li::marker, .job-card ul li { color: #000 !important; }
-      .progress-bar {
-        border: 1px solid #ccc;
-        background: #eee;
-        height: 8px;
-      }
-      .progress {
-        background: #333 !important;
-        transition: none !important;
-      }
-      .skill-item {
-         background: #fff;
-         border: 1px solid #ccc;
-         padding: 0.8rem;
-         box-shadow: none;
-         page-break-inside: avoid;
-      }
-      .skills-container {
-         gap: 1rem;
-         grid-template-columns: repeat(2, 1fr);
-      }
-      .section:last-child {
-        page-break-after: avoid;
-      }
-    }
-    @media (max-width: 768px) {
-      .hero h1 { font-size: 2.2rem; }
-      .hero { padding: 2rem 1.5rem; }
-      .section { padding: 1.5rem; }
-      .controls { bottom: 1rem; right: 1rem; gap: 0.5rem; }
-      .ctrl-btn { width: 55px; height: 55px; font-size: 1.3rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Lorenzo Matellán - Profesional</title>
+    <style>
+        /* --- VARIABLES DE DISEÑO (SOPORTE DE TEMAS) --- */
+        :root {
+            --bg-principal: #f4f7f9;
+            --bg-tarjeta: #ffffff;
+            --texto-principal: #2c3e50;
+            --texto-secundario: #606f7b;
+            --color-acentos: #0077b5; /* Azul LinkedIn corporativo */
+            --color-acentos-hover: #00598a;
+            --borde: #e2e8f0;
+            --sombra: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --sombra-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-principal: #0f172a;
+            --bg-tarjeta: #1e293b;
+            --texto-principal: #f8fafc;
+            --texto-secundario: #94a3b8;
+            --color-acentos: #38bdf8;
+            --color-acentos-hover: #7dd3fc;
+            --borde: #334155;
+            --sombra: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --sombra-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* --- ESTILOS GENERALES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            transition: var(--transicion);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .contenedor {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- CONTROLES / BOTONES SUPERIORES --- */
+        .controles-superiores {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            background-color: var(--bg-tarjeta);
+            color: var(--texto-principal);
+            border: 1px solid var(--borde);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--sombra-hover);
+            border-color: var(--color-acentos);
+            color: var(--color-acentos);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* --- CABECERA PRINCIPAL --- */
+        header {
+            background-color: var(--bg-tarjeta);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--sombra);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            border: 1px solid var(--borde);
+            transition: var(--transicion);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, var(--color-acentos), var(--color-acentos-hover));
+        }
+
+        .perfil-info h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--texto-principal);
+            margin-bottom: 0.5rem;
+        }
+
+        .perfil-info .subtitulo {
+            font-size: 1.25rem;
+            color: var(--color-acentos);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .enlace-linkedin {
+            display: inline-flex;
+            align-items: center;
+            color: var(--texto-secundario);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transicion);
+        }
+
+        .enlace-linkedin:hover {
+            color: var(--color-acentos);
+            transform: translateX(5px);
+        }
+
+        .qr-contenedor {
+            background: white;
+            padding: 0.75rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transicion);
+        }
+
+        .qr-contenedor:hover {
+            transform: scale(1.05) rotate(1deg);
+        }
+
+        .qr-contenedor img {
+            width: 120px;
+            height: 120px;
+        }
+
+        .qr-contenedor span {
+            font-size: 0.75rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        /* --- SECCIÓN EXPERIENCIA --- */
+        .seccion-titulo {
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-acentos);
+            border-radius: 2px;
+        }
+
+        .bloque-experiencia {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .tarjeta-experiencia {
+            background-color: var(--bg-tarjeta);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid var(--borde);
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+            cursor: pointer;
+            position: relative;
+        }
+
+        /* Efecto dinámico de movimiento e interacción al pasar el ratón */
+        .tarjeta-experiencia:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: var(--sombra-hover);
+            border-color: var(--color-acentos);
+        }
+
+        .tarjeta-encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .puesto-titulo {
+            font-size: 1.35rem;
+            color: var(--texto-principal);
+            font-weight: 700;
+        }
+
+        .compania-info {
+            font-size: 1.1rem;
+            color: var(--color-acentos);
+            font-weight: 600;
+        }
+
+        .metadatos {
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .descripcion {
+            color: var(--texto-secundario);
+            text-align: justify;
+            white-space: pre-line;
+            font-size: 0.975rem;
+        }
+
+        /* Sub-roles dentro de una misma entidad */
+        .sub-rol {
+            margin-top: 1.5rem;
+            padding-left: 1.25rem;
+            border-left: 3px solid var(--color-acentos);
+        }
+
+        .sub-rol-titulo {
+            font-weight: 700;
+            color: var(--texto-principal);
+            margin-bottom: 0.25rem;
+        }
+
+        /* --- CONFIGURACIÓN DE IMPRESIÓN (PDF) --- */
+        @media print {
+            body {
+                background-color: white !important;
+                color: black !important;
+                padding: 0;
+            }
+            .no-print {
+                display: none !important;
+            }
+            .tarjeta-experiencia {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 1px solid #cbd5e1 !important;
+                page-break-inside: avoid;
+                padding: 1rem 0 !important;
+            }
+            .tarjeta-experiencia:hover {
+                transform: none !important;
+            }
+            header {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 2px solid black !important;
+                padding: 1rem 0 !important;
+            }
+            header::before {
+                display: none;
+            }
+            .qr-contenedor {
+                border: 1px solid #000;
+            }
+        }
+
+        /* Responsividad básica */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .qr-contenedor {
+                align-self: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="controls">
-    <button class="ctrl-btn" onclick="window.print()" title="Imprimir como PDF">
-      <i class="fas fa-file-pdf"></i>
-    </button>
-    <button class="ctrl-btn" onclick="toggleTheme()" title="Modo Oscuro">
-      <i class="fas fa-moon theme-icon"></i>
-    </button>
-  </div>
+    <div class="contenedor">
+        
+        <!-- Bloque de Botones Interactivos -->
+        <div class="controles-superiores no-print">
+            <button class="btn" id="btn-tema" title="Cambiar modo de color">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span>Modo Oscuro</span>
+            </button>
+            <button class="btn" id="btn-pdf" title="Exportar este CV a PDF">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Imprimir en PDF</span>
+            </button>
+        </div>
 
-  <div class="cv-master">
-    
-    <div class="hero">
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=80x80&data=https://linkedin.com/in/lorenzomatellan" alt="QR LinkedIn" class="qr-code">
-      <h1>David Lorenzo</h1>
-      <div class="contact-bar">
-        <a href="mailto:d.lorenzocara@hotmail.es"><i class="fas fa-envelope"></i> d.lorenzocara@hotmail.es</a>
-        <a href="https://linkedin.com/in/lorenzomatellan" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-        <a href="#"><i class="fas fa-map-marker-alt"></i> Madrid</a>
-      </div>
+        <!-- Cabecera del Perfil Profesional -->
+        <header>
+            <div class="perfil-info">
+                <h1>Lorenzo Matellán</h1>
+                <div class="subtitulo">Especialista en Riesgos de Crédito, Gestión del Cambio y Medios de Pago</div>
+                <a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank" class="enlace-linkedin">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    linkedin.com/in/lorenzomatellan
+                </a>
+            </div>
+            
+            <!-- Generación dinámica de código QR utilizando API abierta y pública -->
+            <div class="qr-contenedor">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/lorenzomatellan" alt="Código QR de LinkedIn">
+                <span>¡Escanéame!</span>
+            </div>
+        </header>
+
+        <!-- Sección de Experiencia Laboral -->
+        <main>
+            <h2 class="seccion-titulo">Experiencia</h2>
+            <div class="bloque-experiencia">
+
+                <!-- Puesto 1 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Analista de Riesgos de Crédito (No Consumo)</div>
+                            <div class="compania-info">Santander · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>jun. 2024 - may. 2026 · 2 años</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">
+                        Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RABC/RAC, IFRS9, CIRBE y balances financieros para clientes corporativos, patrimoniales y empresas de alto perfil. Las operaciones se canalizan directamente a través de la Comisión de Riesg y Factores estratégicos como Estructur, bcos y Acuerdos.
+
+                        Gestiono una media de 10-12 expedientes diarios de alta complejidad (pignoraciones, ampliaciones, lombardos, créditos internacionales, líneas de crédito, subrogaciones, novaciones, extinciones de condominio hipotecario, reestructuraciones y operaciones especiales para farmacias o corporaciones por Partner), con facultades autónomas de aprobación hasta 1,5 M€.
+
+                        Defendido ante el Comité de Riesgos operaciones de alto valor, incluyendo reestructuraciones complejas para clientes corporativos y patrimoniales, incluidos interconex. internacionales con adquisiciones en España.
+
+                        Evalúo valoraciones patrimoniales mediante Cuadro de Valoración Patrimonial Neta, analizando RABC/RAC, IFRS9, balances financieros, scoring, EBITDA, garantías reales, cash flow, POAD y contrastando datos con CIRBE y Comité Repos internacionales.
+
+                        Coordino con equipos internos de riesgos, negocio y cumplimiento para garantizar la conformidad regulatoria en materia de PBC/FT.
+                    </div>
+                </div>
+
+                <!-- Puesto 2 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
+                            <div class="compania-info">Santander · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>ene. 2020 - may. 2024 · 4 años 5 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">
+                        (Roles Múltiples) Contribuyendo a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, bca.elcty digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas. Total acumulado de +7 años y 6 meses de actividad en la entidad.
+                        
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (03/2023 - 04/2024) | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago</div>
+                            Impacto formación sobre herramientas digitales y tecnologías multi-dispositivos en medios de pago, mejorando la adopción de plataformas, proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.
+                        </div>
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (03/2021 - 03/2023) | Gestor del Cambio</div>
+                            Configuro reglas en motores de producción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos, aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.
+                        </div>
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (10/2020 - 03/2021) | Consultor Digital</div>
+                            Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas, automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.
+                        </div>
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (07/2020 - 09/2020) | Supervisor Remoto de la Unidades Comerciales - USAC</div>
+                            Analizo fraudes en medios de pago, supervisando actividades comerciales remotas, controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.
+                        </div>
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (01/2020 - 06/2020) | Cumplimiento Normativo - PBC</div>
+                            Apoyo directo a la red comercial en prevención de blanqueo de capitales y financiación al terrorismo (PBC/FT), análisis de documentación y actualización de bases de datos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puesto 3 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor del Cambio y Formador Bancario</div>
+                            <div class="compania-info">Rural Servicios Informáticos S.L. (RSI) · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>oct. 2019 - ene. 2022 · 2 años 4 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">
+                        Participé en la migración tecnológica y en la formación de equipos dentro del ecosistema RSI, gestionando integraciones API para entidades bancarias clave y desarrollando programas de capacitación en banca electrónica, soporte operativo y medios de pago durante más de dos años.
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">03/2021 - 01/2022 | Gestor del Cambio / Formador Bancario</div>
+                            Lideré equipos en la implantación de nuevos sistemas tecnológicos, gestionando integraciones API con entidades como Rural Via, Vallbanc, El Voló, SCI Renault Crédit e ICF durante los procesos de onboarding. Proporcioné soporte funcional y resolución de incidencias en las plataformas Iris y Ruralvia.
+                        </div>
+
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">10/2019 - 02/2021 | Formador de Formadores</div>
+                            Diseñé y ejecuté programas de capacitación en banca electrónica y medios de pago (Iris, Cajas), fortaleciendo las competencias de soporte y atención operativa de los equipos internos.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Puesto 4 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor banca</div>
+                            <div class="compania-info">Banco Popular · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>ago. 2013 - ene. 2019 · 5 años 6 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
+                    </div>
+                    <div class="descripcion">
+                        Asesoré y comercialicé productos financieros (ahorro, inversión, préstamos, fondos y seguros), gestioné operaciones de caja y resolví incidencias operativas, contribuyendo a la fidelización y eficiencia en sucursal.
+                    </div>
+                </div>
+
+                <!-- Puesto 5 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Técnico CAU</div>
+                            <div class="compania-info">Sercon · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>ago. 2010 - ago. 2013 · 3 años 1 mes</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
+                    </div>
+                    <div class="descripcion">
+                        Proporcioné soporte integral de 1º nivel, resolviendo incidencias técnicas en redes y sistemas; configuré instalaciones críticas (PCs, impresoras, UMTS) y apoyé en la gestión de productos bancarios.
+                    </div>
+                </div>
+
+                <!-- Puesto 6 -->
+                <div class="tarjeta-experiencia">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Fraud Manager Means of Payment</div>
+                            <div class="compania-info">ING · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>abr. 2006 - ago. 2010 · 4 años 5 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España</span>
+                    </div>
+                    <div class="descripcion">
+                        Controlé fraudes en tarjetas y transferencias, gestionando alertas ACI, Fico(sp) y dD; elaboré mapas de riesgos, ofrecio soporte online y cumplí normativa PBC/FT.
+                    </div>
+                </div>
+
+            </div>
+        </main>
     </div>
 
-    <div class="summary section">
-      <p>
-        Profesional con 17 años de experiencia en banca, especializado en la optimización de procesos de fraude, 
-        transformación digital y cumplimiento PBC/FT. Mi trayectoria incluye la gestión de riesgos crediticios 
-        no consumo y la colaboración con partners estratégicos (Deloitte, Indra, Accenture) y clientes internacionales. 
-        Disponible para aportar mi experiencia en un rol de consultoría senior.
-      </p>
-    </div>
+    <!-- LÓGICA INTERACTIVA EN JAVASCRIPT -->
+    <script>
+        // --- 1. BOTÓN CLARO / OSCURO ---
+        const btnTema = document.getElementById('btn-tema');
+        const root = document.documentElement;
+        
+        btnTema.addEventListener('click', () => {
+            const temaActual = root.getAttribute('data-theme');
+            if (temaActual === 'dark') {
+                root.removeAttribute('data-theme');
+                btnTema.innerHTML = `
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span>Modo Oscuro</span>
+                `;
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                btnTema.innerHTML = `
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span>Modo Claro</span>
+                `;
+            }
+        });
 
-    <div class="section">
-      <h2>Experiencia Profesional</h2>
+        // --- 2. BOTÓN DE IMPRESIÓN A PDF ---
+        const btnPdf = document.getElementById('btn-pdf');
+        btnPdf.addEventListener('click', () => {
+            window.print();
+        });
 
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Analista de Riesgos de Crédito (No Consumo)</div>
-            <div class="company">Bankinter</div>
-          </div>
-          <div class="date">06/2024 – Abril 2026</div>
-        </div>
-        <ul>
-          <li>Analizo 10-12 casos diarios de riesgos crediticios para no créditos al consumo, incluyendo pignoraciones, ampliaciones de crédito, desbloqueo de cuentas, créditos lombardos, créditos internacionales, subrogaciones, novaciones, extinciones de condominio, créditos hipotecarios desde terreno hasta edificación, y créditos especiales para farmacias y constructoras, gestionando facultades hasta 1.500.000 €.</li>
-          <li>Presento casos superiores a 1.500.000 € al comité de dirección, colaborando para decisiones conjuntas.</li>
-          <li>Evalúo valoraciones patrimoniales, analizando viabilidad, scoring, EBITDA, garantías reales, cash flow y Credit Reports para extranjeros.</li>
-          <li>Coordino con equipos internos para garantizar cumplimiento normativo en PBC/FT.</li>
-        </ul>
-      </div>
-
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Gestor del Cambio / Formador / Consultor Digital</div>
-            <div class="company">Santander</div>
-          </div>
-          <div class="date">02/2019 – 05/2024</div>
-        </div>
-        <ul>
-          <li><strong>Formador (10/2023–05/2024)</strong>: Imparto formación sobre herramientas digitales y tecnologías multidivisa; proporciono soporte funcional en proyectos de transformación.</li>
-          <li><strong>Gestor del Cambio (02/2023–09/2023)</strong>: Configuro reglas en motores de riesgo; realizo pruebas de APIs; facilito transición entre usuarios y equipos técnicos.</li>
-          <li><strong>Consultor Digital (10/2022–01/2023)</strong>: Diseño soluciones para digitalizar procesos; automatizo tareas operativas.</li>
-          <li><strong>Supervisor SRAC (01/2022–08/2022)</strong>: Analizo fraudes en medios de pago; controlo operaciones remotas.</li>
-          <li><strong>Cumplimiento PBC (02/2019–04/2019)</strong>: Apoyo a la red comercial en prevención de blanqueo.</li>
-        </ul>
-      </div>
-
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Gestor del Cambio / Formador Bancario</div>
-            <div class="company">Rural Servicios Informáticos (RSI)</div>
-          </div>
-          <div class="date">02/2020 – 02/2022</div>
-        </div>
-        <ul>
-          <li>Formo equipos en migración a nuevos sistemas; gestiono conexiones de entidades (Fiare, Vallbanc, B-NexT, RCI Renault Credit, ICF) vía APIs para onboarding.</li>
-          <li>Desarrollo programas de capacitación en banca electrónica y medios de pago con Iris y Citrix.</li>
-        </ul>
-      </div>
-
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Gestor de Banca</div>
-            <div class="company">Banco Popular</div>
-          </div>
-          <div class="date">08/2012 – 08/2017</div>
-        </div>
-        <ul>
-          <li>Asesoro a clientes en ahorro, inversión y productos financieros como fondos, préstamos y seguros.</li>
-          <li>Gestión de operaciones de caja y resolución de problemas operativos.</li>
-        </ul>
-      </div>
-
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Técnico CAU</div>
-            <div class="company">Bankia</div>
-          </div>
-          <div class="date">08/2010 – 08/2012</div>
-        </div>
-        <ul>
-          <li>Proporciono soporte Helpdesk de 2º nivel, resolviendo incidencias in situ y remotas.</li>
-          <li>Configuro e instalo PCs, portátiles, impresoras, tarjetas UMTS y sistemas operativos.</li>
-        </ul>
-      </div>
-
-      <div class="job-card">
-        <div class="job-header">
-          <div>
-            <div class="job-title">Gestor de Fraude en Medios de Pago</div>
-            <div class="company">ING</div>
-          </div>
-          <div class="date">04/2006 – 08/2010</div>
-        </div>
-        <ul>
-          <li>Controlo fraudes en tarjetas y transferencias, gestionando alertas ACI, Redsys y 4B.</li>
-          <li>Cumplo normativa PBC/FT, elaborando mapas de riesgos y reportando al Sepblac.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Formación</h2>
-      <div class="job-card">
-        <strong>Máster en Fraude y Gestión del Riesgo</strong><br>
-        Upper Academy • 11/2016 – 05/2017
-      </div>
-      <div class="job-card">
-        <strong>Grado en Ingeniería en Tecnologías de la Información</strong><br>
-        Universidad Europea • 09/2010 – 07/2016
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Habilidades Clave</h2>
-      <div class="skills-container">
-        <div class="skill-item">
-          <div class="skill-name">Riesgos Crediticios (No Consumo)</div>
-          <div class="progress-bar"><div class="progress" style="width:95%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Prevención de Fraude & PBC/FT</div>
-          <div class="progress-bar"><div class="progress" style="width:92%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Gestión del Cambio</div>
-          <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">APIs & Integración</div>
-          <div class="progress-bar"><div class="progress" style="width:88%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Banca Digital</div>
-          <div class="progress-bar"><div class="progress" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <div class="skill-name">Excel Avanzado</div>
-          <div class="progress-bar"><div class="progress" style="width:85%"></div></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section">
-      <h2>Idiomas</h2>
-      <div style="display:flex;gap:3rem;justify-content:center;font-size:1.1rem;">
-        <div><strong>Español:</strong> Nativo</div>
-        <div><strong>Inglés:</strong> Intermedio</div>
-      </div>
-    </div>
-
-  </div>
-
-  <script>
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.querySelectorAll('.progress').forEach(bar => {
-            setTimeout(() => bar.style.width = bar.style.width, 300);
-          });
-        }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.section').forEach(section => observer.observe(section));
-
-    // Función de Modo Oscuro mejorada con iconos
-    function toggleTheme() {
-      const current = document.documentElement.getAttribute('data-theme') || 'light';
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      document.documentElement.setAttribute('data-theme', newTheme);
-      
-      const icon = document.querySelector('.theme-icon');
-      const btn = icon.parentElement;
-      
-      if (newTheme === 'dark') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        btn.title = "Modo Claro";
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        btn.title = "Modo Oscuro";
-      }
-    }
-
-    // Lógica para barras de progreso y estado inicial del icono
-    document.addEventListener('DOMContentLoaded', () => {
-      // Animar barras de progreso
-      document.querySelectorAll('.progress').forEach(bar => {
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => bar.style.width = width, 500);
-      });
-
-      // Poner el icono de tema correcto al cargar
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-      const icon = document.querySelector('.theme-icon');
-      const btn = icon.parentElement;
-      
-      if (currentTheme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-        btn.title = "Modo Claro";
-      } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-        btn.title = "Modo Oscuro";
-      }
-    });
-  </script>
+        // --- 3. EFECTO DINÁMICO EXTRA AL PASAR EL RATÓN (Opcional/Avanzado) ---
+        // Las tarjetas ya se mueven con CSS, pero añadimos un sutil efecto de brillo 3D
+        const tarjetas = document.querySelectorAll('.tarjeta-experiencia');
+        tarjetas.forEach(tarjeta => {
+            tarjeta.addEventListener('mousemove', (e) => {
+                const rect = tarjeta.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                tarjeta.style.setProperty('--mouse-x', `${x}px`);
+                tarjeta.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
 </body>
 </html>
