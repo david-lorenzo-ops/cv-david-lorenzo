@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV David Lorenzo Caracuel - Consultor de Riesgos</title>
+    <title>CV David Lorenzo Caracuel</title>
     <style>
-        :root { --bg: #f8fafc; --tarjeta: #ffffff; --texto: #0f172a; --accent: #2563eb; --borde: #e2e8f0; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background-color: var(--bg); color: var(--texto); padding: 40px 20px; line-height: 1.6; }
+        :root { --bg: #f8fafc; --card: #ffffff; --primary: #0077b5; --text: #1e293b; --text-muted: #64748b; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; line-height: 1.5; }
         .container { max-width: 800px; margin: auto; }
         
-        .header { background: var(--tarjeta); padding: 30px; border-radius: 16px; border: 1px solid var(--borde); margin-bottom: 30px; text-align: center; }
-        h1 { margin: 0; font-size: 2rem; color: var(--accent); }
+        .header { text-align: center; margin-bottom: 40px; }
+        h1 { margin: 0; color: #000; font-size: 2.2rem; }
+        .subtitle { color: var(--primary); font-weight: 600; font-size: 1.1rem; }
         
-        .card { background: var(--tarjeta); padding: 25px; margin-bottom: 20px; border-radius: 12px; border: 1px solid var(--borde); transition: transform 0.2s ease; }
-        .card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); }
+        .card { background: var(--card); padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); transition: transform 0.2s ease, box-shadow 0.2s ease; }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
         
-        .job-title { font-weight: 800; font-size: 1.2rem; }
-        .company { color: var(--accent); font-weight: 600; margin-bottom: 5px; }
-        .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 15px; }
-        .desc { font-size: 0.95rem; color: #334155; }
-
-        .no-print { text-align: center; margin-bottom: 20px; }
-        button { padding: 10px 25px; background: var(--accent); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; }
+        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 5px; margin-top: 30px; }
+        .job-title { font-weight: 700; color: var(--primary); font-size: 1.15rem; }
+        .meta { font-style: italic; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
+        
+        .no-print { text-align: center; margin-bottom: 30px; }
+        button { padding: 12px 24px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
 
         @media print {
-            body { background: white; }
+            body { background: white; padding: 0; }
             .no-print { display: none; }
-            .card { break-inside: avoid; border: 1px solid #ddd; }
-            .container { width: 100%; max-width: 100%; }
+            .card { box-shadow: none; border: 1px solid #ddd; border-left: 5px solid var(--primary); page-break-inside: avoid; }
+            @page { size: A4; margin: 15mm; }
         }
     </style>
 </head>
@@ -37,47 +37,41 @@
             <button onclick="window.print()">Descargar / Imprimir CV</button>
         </div>
         
-        <header class="header">
+        <div class="header">
             <h1>David Lorenzo Caracuel</h1>
-            <p>Consultor de Riesgos y Transformación Bancaria</p>
-            <p><a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank">linkedin.com/in/lorenzomatellan</a></p>
-        </header>
+            <p class="subtitle">Consultor de Riesgos y Transformación Bancaria</p>
+        </div>
 
         <h2>Experiencia Profesional</h2>
         
         <div class="card">
-            <div class="job-title">Analista de Riesgos de Crédito (No Consumo)</div>
-            <div class="company">Bankinter</div>
-            <div class="meta">jun. 2024 - may. 2026</div>
-            <div class="desc">Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero para clientes empresariales y patrimoniales.</div>
+            <div class="job-title">Analista de Riesgos de Crédito (No Consumo) | Bankinter</div>
+            <div class="meta">06/2024 – 03/2026</div>
+            <p>Análisis de riesgos crediticios, pignoraciones, créditos lombardos y gestión de expedientes hasta 1.5M€. Coordinación con equipos para cumplimiento PBC/FT.</p>
         </div>
 
         <div class="card">
-            <div class="job-title">Gestor del Cambio, Consultor Digital y Formador</div>
-            <div class="company">Santander</div>
-            <div class="meta">feb. 2019 - may. 2024</div>
-            <div class="desc">Gestión del cambio, transformación digital, formación en medios de pago y cumplimiento normativo. Optimización de procesos y adopción tecnológica.</div>
+            <div class="job-title">Gestor del Cambio / Formador / Consultor Digital | Banco Santander</div>
+            <div class="meta">01/2022 – 05/2024</div>
+            <p>Formación en Medios de Pago, configuración de reglas en motores de riesgo, pruebas de APIs y diseño de soluciones digitales para optimización de procesos.</p>
         </div>
 
         <div class="card">
-            <div class="job-title">Gestor del Cambio y Formador Bancario</div>
-            <div class="company">RSI (Rural Servicios Informáticos)</div>
-            <div class="meta">oct. 2019 - ene. 2022</div>
-            <div class="desc">Migración tecnológica, soporte funcional en plataformas Iris/Pórtico e integraciones API para diversas entidades financieras.</div>
+            <div class="job-title">Gestor del Cambio IT / Formador Bancario | RSI</div>
+            <div class="meta">10/2019 – 01/2022</div>
+            <p>Gestión en migración tecnológica (IRIS), soporte funcional e integración vía APIs para entidades financieras.</p>
         </div>
 
         <div class="card">
-            <div class="job-title">Gestor banca</div>
-            <div class="company">Banco Popular</div>
-            <div class="meta">ago. 2012 - ene. 2019</div>
-            <div class="desc">Asesoramiento financiero, gestión operativa de sucursal y fidelización de clientes.</div>
+            <div class="job-title">Gestor de Banca y Caja | Banco Popular</div>
+            <div class="meta">08/2012 – 12/2018</div>
+            <p>Asesoramiento integral, gestión operativa de sucursal y resolución de incidencias financieras.</p>
         </div>
         
-        <h2>Educación</h2>
+        <h2>Formación Académica</h2>
         <div class="card">
-            <div class="job-title">Master en Fraude y Gestión del Riesgo en los Medios de Pago</div>
-            <div class="company">Upper Academy</div>
-            <div class="meta">2016 - 2017</div>
+            <div class="job-title">Máster en Fraude y Gestión del Riesgo</div>
+            <div>Upper Academy (2016 – 2017)</div>
         </div>
     </div>
 </body>
