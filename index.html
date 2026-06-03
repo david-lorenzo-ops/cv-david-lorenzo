@@ -2,63 +2,80 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>David Lorenzo - CV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV David Lorenzo Caracuel</title>
     <style>
         :root { --bg: #f4f7f9; --tarjeta: #ffffff; --texto: #2c3e50; --accent: #0077b5; }
-        body { font-family: sans-serif; background: var(--bg); color: var(--texto); padding: 20px; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; background: var(--bg); color: var(--texto); padding: 40px 20px; line-height: 1.6; }
         .container { max-width: 800px; margin: auto; }
-        .card { background: var(--tarjeta); padding: 20px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.3s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
-        h1 { margin-bottom: 5px; }
-        .job-title { font-weight: bold; color: var(--accent); }
-        .meta { font-style: italic; font-size: 0.9em; margin-bottom: 10px; }
-        .no-print { margin-bottom: 20px; }
+        
+        /* Tarjetas con interacción suave */
+        .card { background: var(--tarjeta); padding: 25px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: transform 0.2s ease, box-shadow 0.2s ease; border-left: 5px solid var(--accent); }
+        .card:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        
+        h1 { margin-bottom: 5px; color: #1a252f; }
+        .job-title { font-weight: 700; color: var(--accent); font-size: 1.1em; }
+        .meta { font-style: italic; font-size: 0.85em; color: #7f8c8d; margin-bottom: 8px; }
+        
+        .no-print { margin-bottom: 30px; text-align: center; }
+        button { padding: 10px 20px; cursor: pointer; background: var(--accent); color: white; border: none; border-radius: 5px; font-weight: bold; }
+
+        /* Ajustes IMPRESCINDIBLES para PDF */
+        @media print {
+            body { background: white; padding: 0; }
+            .no-print { display: none; }
+            .container { width: 100%; max-width: 100%; }
+            .card { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+            @page { margin: 20mm; size: auto; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="no-print">
-            <button onclick="window.print()">Imprimir en PDF</button>
+            <button onclick="window.print()">Descargar / Imprimir en PDF</button>
         </div>
+        
         <header>
-            <h1>David Lorenzo</h1>
+            <h1>David Lorenzo Caracuel</h1>
             <p>Consultor de Riesgos y Transformación Bancaria</p>
-            <p><a href="https://www.linkedin.com/in/lorenzomatellan">LinkedIn</a></p>
+            <p><a href="https://www.linkedin.com/in/lorenzomatellan">linkedin.com/in/lorenzomatellan</a></p>
         </header>
 
-        <h2>Experiencia</h2>
+        <h2>Experiencia Profesional</h2>
         
         <div class="card">
             <div class="job-title">Analista de Riesgos de Crédito (No Consumo)</div>
             <div>Bankinter</div>
             <div class="meta">jun. 2024 - may. 2026</div>
-            <p>Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€.</p>
+            <p>Análisis de expedientes de riesgos crediticios no consumo con autonomía hasta 1,5 M€. Gestión de operaciones con Partners estratégicos y criterios RARORAC, LTV/LTC, CIRBE.</p>
         </div>
 
         <div class="card">
-            <div class="job-title">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
+            <div class="job-title">Gestor del Cambio, Consultor Digital y Formador</div>
             <div>Santander</div>
             <div class="meta">feb. 2019 - may. 2024</div>
-            <p>Gestión del cambio, formación, fraude y digitalización.</p>
+            <p>Transformación digital, cumplimiento normativo, gestión de fraude en medios de pago y adopción tecnológica en plataformas bancarias.</p>
         </div>
 
         <div class="card">
             <div class="job-title">Gestor del Cambio y Formador Bancario</div>
-            <div>RSI</div>
+            <div>Rural Servicios Informáticos S.L. (RSI)</div>
             <div class="meta">oct. 2019 - ene. 2022</div>
-            <p>Migración tecnológica y formación en el ecosistema RSI.</p>
+            <p>Migración tecnológica, soporte funcional en plataformas Iris/Pórtico e integraciones API para entidades financieras.</p>
         </div>
 
         <div class="card">
             <div class="job-title">Gestor banca</div>
             <div>Banco Popular</div>
             <div class="meta">ago. 2012 - ene. 2019</div>
-            <p>Asesoramiento financiero y gestión operativa.</p>
+            <p>Asesoramiento comercial en productos de activo y pasivo, fidelización de clientes y gestión operativa.</p>
         </div>
         
         <h2>Educación</h2>
         <div class="card">
-            <div>Master en Fraude y Gestión del Riesgo en los Medios de Pago - Upper Academy</div>
+            <div class="job-title">Master en Fraude y Gestión del Riesgo en los Medios de Pago</div>
+            <div>Upper Academy</div>
             <div class="meta">2016 - 2017</div>
         </div>
     </div>
