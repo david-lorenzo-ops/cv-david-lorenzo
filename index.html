@@ -3,76 +3,604 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV David Lorenzo Caracuel</title>
+    <title>CV David Lorenzo Caracuel - Consultor de Riesgos y Transformación Bancaria</title>
     <style>
-        :root { --bg: #f8fafc; --card: #ffffff; --primary: #0077b5; --text: #1e293b; --text-muted: #64748b; }
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; line-height: 1.5; }
-        .container { max-width: 800px; margin: auto; }
-        
-        .header { text-align: center; margin-bottom: 40px; }
-        h1 { margin: 0; color: #000; font-size: 2.2rem; }
-        .subtitle { color: var(--primary); font-weight: 600; font-size: 1.1rem; }
-        
-        .card { background: var(--card); padding: 25px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 5px solid var(--primary); transition: transform 0.2s ease, box-shadow 0.2s ease; }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        
-        h2 { border-bottom: 2px solid var(--primary); padding-bottom: 5px; margin-top: 30px; }
-        .job-title { font-weight: 700; color: var(--primary); font-size: 1.15rem; }
-        .meta { font-style: italic; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 10px; }
-        
-        .no-print { text-align: center; margin-bottom: 30px; }
-        button { padding: 12px 24px; background: var(--primary); color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        /* --- CONFIGURACIÓN DE VARIABLES Y TEMAS ORIGINALES --- */
+        :root {
+            --bg-principal: #f8fafc;
+            --bg-tarjeta: #ffffff;
+            --texto-principal: #0f172a;
+            --texto-secundario: #475569;
+            --color-acentos: #2563eb; 
+            --color-acentos-hover: #1d4ed8;
+            --borde: #e2e8f0;
+            --sombra: 0 4px 20px -2px rgba(50, 50, 93, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
+            --sombra-hover: 0 12px 24px -4px rgba(50, 50, 93, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+            --transicion: all 0.3s ease;
+            --gradiente: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        }
 
+        [data-theme="dark"] {
+            --bg-principal: #090d16;
+            --bg-tarjeta: #131c2e;
+            --texto-principal: #f1f5f9;
+            --texto-secundario: #94a3b8;
+            --color-acentos: #38bdf8;
+            --color-acentos-hover: #7dd3fc;
+            --borde: #1e293b;
+            --sombra: 0 4px 30px rgba(0, 0, 0, 0.4);
+            --sombra-hover: 0 15px 35px rgba(0, 0, 0, 0.5);
+            --gradiente: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+        }
+
+        /* --- ESTILOS BASE Y TIPOGRAFÍA --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-principal);
+            transition: var(--transicion);
+            line-height: 1.7;
+            padding: 3rem 1.5rem;
+        }
+
+        .contenedor {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* --- MENÚ DE INTERACCIÓN SUPERIOR --- */
+        .controles-superiores {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn {
+            background-color: var(--bg-tarjeta);
+            color: var(--texto-principal);
+            border: 1px solid var(--borde);
+            padding: 0.8rem 1.6rem;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            box-shadow: var(--sombra);
+            transition: var(--transicion);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--sombra-hover);
+            border-color: var(--color-acentos);
+            color: var(--color-acentos);
+        }
+
+        /* --- CABECERA PREMIUM --- */
+        header {
+            background-color: var(--bg-tarjeta);
+            padding: 3rem;
+            border-radius: 24px;
+            box-shadow: var(--sombra);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--borde);
+            position: relative;
+            overflow: hidden;
+            transition: var(--transicion);
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: var(--gradiente);
+        }
+
+        .perfil-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .perfil-info h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.5rem;
+            background: var(--gradiente);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .perfil-info .titular {
+            font-size: 1.2rem;
+            color: var(--texto-principal);
+            font-weight: 600;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+
+        .enlace-linkedin {
+            display: inline-flex;
+            align-items: center;
+            color: var(--texto-secundario);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-principal);
+            border: 1px solid var(--borde);
+            transition: var(--transicion);
+        }
+
+        .enlace-linkedin:hover {
+            color: var(--color-acentos);
+            border-color: var(--color-acentos);
+            transform: translateX(5px);
+        }
+
+        .qr-contenedor {
+            background: white;
+            padding: 1rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transicion);
+            border: 1px solid var(--borde);
+        }
+
+        .qr-contenedor img {
+            width: 110px;
+            height: 110px;
+        }
+
+        .qr-contenedor span {
+            font-size: 0.7rem;
+            color: #0f172a;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- DISEÑO DE SECCIONES --- */
+        .seccion {
+            margin-bottom: 3.5rem;
+        }
+
+        .seccion-titulo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .seccion-titulo::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background-color: var(--borde);
+        }
+
+        .bloque-contenido {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* --- TARJETAS INTERACTIVAS SUAVES (CORREGIDAS) --- */
+        .tarjeta-dinamica {
+            background-color: var(--bg-tarjeta);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 1px solid var(--borde);
+            box-shadow: var(--sombra);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto de elevación pulido y sutil, sin inclinaciones bruscas */
+        .tarjeta-dinamica:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--sombra-hover);
+            border-color: var(--color-acentos);
+        }
+
+        .tarjeta-encabezado {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .puesto-titulo {
+            font-size: 1.4rem;
+            color: var(--texto-principal);
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .compania-info {
+            font-size: 1.1rem;
+            color: var(--color-acentos);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .metadatos {
+            font-size: 0.9rem;
+            color: var(--texto-secundario);
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .descripcion {
+            color: var(--texto-secundario);
+            text-align: justify;
+            font-size: 0.975rem;
+            white-space: pre-line;
+        }
+
+        .contenedor-subroles {
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .sub-rol {
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--color-acentos);
+            position: relative;
+        }
+
+        .sub-rol-titulo {
+            font-weight: 700;
+            color: var(--texto-principal);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+
+        /* --- AJUSTES TOTALES DE IMPRESIÓN (PDF CUADRADO PERFECTO) --- */
         @media print {
-            body { background: white; padding: 0; }
-            .no-print { display: none; }
-            .card { box-shadow: none; border: 1px solid #ddd; border-left: 5px solid var(--primary); page-break-inside: avoid; }
-            @page { size: A4; margin: 15mm; }
+            @page {
+                size: A4;
+                margin: 15mm;
+            }
+            body {
+                background-color: white !important;
+                color: #0f172a !important;
+                padding: 0 !important;
+            }
+            .contenedor {
+                max-width: 100% !important;
+                width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .no-print {
+                display: none !important;
+            }
+            header {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 2px solid #2563eb !important;
+                padding: 1.5rem 0 !important;
+                border-radius: 0 !important;
+                margin-bottom: 2rem !important;
+            }
+            header::before {
+                display: none !important;
+            }
+            .perfil-info h1 {
+                -webkit-text-fill-color: #0f172a !important;
+                color: #0f172a !important;
+            }
+            .qr-contenedor {
+                border: 1px solid #e2e8f0;
+                background: white !important;
+                padding: 0.5rem !important;
+            }
+            .qr-contenedor img {
+                width: 90px !important;
+                height: 90px !important;
+            }
+            .tarjeta-dinamica {
+                box-shadow: none !important;
+                border: none !important;
+                border-bottom: 1px solid #e2e8f0 !important;
+                border-radius: 0 !important;
+                padding: 1.5rem 0 !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .tarjeta-dinamica:hover {
+                transform: none !important;
+            }
+            .seccion {
+                margin-bottom: 2rem !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 2rem;
+            }
+            .qr-contenedor {
+                align-self: center;
+            }
+            .perfil-info h1 {
+                font-size: 2.2rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="no-print">
-            <button onclick="window.print()">Descargar / Imprimir CV</button>
-        </div>
+
+    <div class="contenedor">
         
-        <div class="header">
-            <h1>David Lorenzo Caracuel</h1>
-            <p class="subtitle">Consultor de Riesgos y Transformación Bancaria</p>
+        <!-- Barra de Control de Utilidades Interactivas -->
+        <div class="controles-superiores no-print">
+            <button class="btn" id="btn-tema" title="Alternar tema visual">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                <span>Modo Oscuro</span>
+            </button>
+            <button class="btn" id="btn-pdf" title="Descargar como documento PDF">
+                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                <span>Imprimir en PDF</span>
+            </button>
         </div>
 
-        <h2>Experiencia Profesional</h2>
-        
-        <div class="card">
-            <div class="job-title">Analista de Riesgos de Crédito (No Consumo) | Bankinter</div>
-            <div class="meta">06/2024 – 03/2026</div>
-            <p>Análisis de riesgos crediticios, pignoraciones, créditos lombardos y gestión de expedientes hasta 1.5M€. Coordinación con equipos para cumplimiento PBC/FT.</p>
-        </div>
+        <!-- Encabezado de Identidad Profesional -->
+        <header>
+            <div class="perfil-info">
+                <h1>David Lorenzo Caracuel</h1>
+                <div class="titular">Consultor de Riesgos y Transformación Bancaria | CIRBE · Riesgo Crediticio · PBC · Gestión del Cambio · Procesos y Mejora Continua</div>
+                <a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank" class="enlace-linkedin">
+                    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24" style="margin-right: 8px;"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+                    linkedin.com/in/lorenzomatellan
+                </a>
+            </div>
+            
+            <div class="qr-contenedor">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://www.linkedin.com/in/lorenzomatellan" alt="Código QR del perfil de LinkedIn">
+                <span>Escanéame</span>
+            </div>
+        </header>
 
-        <div class="card">
-            <div class="job-title">Gestor del Cambio / Formador / Consultor Digital | Banco Santander</div>
-            <div class="meta">01/2022 – 05/2024</div>
-            <p>Formación en Medios de Pago, configuración de reglas en motores de riesgo, pruebas de APIs y diseño de soluciones digitales para optimización de procesos.</p>
-        </div>
+        <!-- Bloque Principal de Experiencia Profesional -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">Experiencia</h2>
+            <div class="bloque-contenido">
 
-        <div class="card">
-            <div class="job-title">Gestor del Cambio IT / Formador Bancario | RSI</div>
-            <div class="meta">10/2019 – 01/2022</div>
-            <p>Gestión en migración tecnológica (IRIS), soporte funcional e integración vía APIs para entidades financieras.</p>
-        </div>
+                <!-- Registro 1: Bankinter -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Analista de Riesgos de Crédito (No Consumo)</div>
+                            <div class="compania-info">Bankinter · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>jun. 2024 - may. 2026 · 2 años</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero para clientes empresariales, patrimoniales y extranjeros de alto perfil. Las operaciones se canalizan directamente a través de la Dirección de Red y Partners estratégicos como Deloitte, Indra y Accenture.
 
-        <div class="card">
-            <div class="job-title">Gestor de Banca y Caja | Banco Popular</div>
-            <div class="meta">08/2012 – 12/2018</div>
-            <p>Asesoramiento integral, gestión operativa de sucursal y resolución de incidencias financieras.</p>
-        </div>
-        
-        <h2>Formación Académica</h2>
-        <div class="card">
-            <div class="job-title">Máster en Fraude y Gestión del Riesgo</div>
-            <div>Upper Academy (2016 – 2017)</div>
-        </div>
+                    Gestiono una media de 10-12 expedientes diarios de alta complejidad (pignoraciones, ampliaciones, lombardos, créditos internacionales, líneas de crédito, subrogaciones, novaciones, extinciones de condominio, hipotecas suelo-edificación y operaciones especiales para farmacias o constructoras por Partner), con facultades autónomas de aprobación hasta 1,5 M€.
+
+                    Defiendo ante el Comité de Dirección operaciones de alto valor, influyendo en decisiones estratégicas para clientes corporativos y patrimoniales, incluidos inversores internacionales con adquisiciones en España.
+
+                    Evalúo valoraciones patrimoniales mediante Cuadro de Valoración Patrimonial Neto, analizando RARORAC, LTV/LTC, esfuerzo financiero, scoring, EBITDA, garantías reales, cash flow, PD/LGD, y contrastando datos con CIRBE y Credit Reports internacionales.
+
+                    Coordino con equipos internos de riesgos, negocio y cumplimiento para garantizar la conformidad regulatoria en materia de PBC/FT.</div>
+                </div>
+
+                <!-- Registro 2: Santander -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
+                            <div class="compania-info">Santander · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>feb. 2019 - may. 2024 · 5 años 4 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">(Roles Múltiples)
+                    Contribuí a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, fraude y digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas (total acumulado de ~2 años y 4 meses de actividad en la entidad).
+                    
+                    <div class="contenedor-subroles">
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (10/2023 – 05/2024 | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago)</div>
+                            Imparto formación sobre herramientas digitales y tecnologías multidivisa en medios de pago, mejorando la adopción de plataformas; proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (02/2023 – 09/2023 | Gestor del Cambio)</div>
+                            Configuro reglas en motores de predicción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos; aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (10/2022 – 01/2023 | Consultor Digital)</div>
+                            Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas; automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (01/2022 – 08/2022 | Supervisor Remoto de Actividades Comerciales – SRAC)</div>
+                            Analizo fraudes en medios de pago, supervisando actividades comerciales remotas; controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (02/2019 – 04/2019 | Cumplimiento Normativo – PBC)</div>
+                            Apoyo directo a la red comercial en prevención de blanqueo de capitales y financiación al terrorismo (PBC/FT), análisis de documentación y actualización de bases de datos.
+                        </div>
+                    </div></div>
+                </div>
+
+                <!-- Registro 3: RSI -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor del Cambio y Formador Bancario</div>
+                            <div class="compania-info">Rural Servicios Informáticos S.L. (RSI) · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>oct. 2019 - ene. 2022 · 2 años 4 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">Participé en la migración tecnológica y en la formación de equipos dentro del ecosistema RSI, gestionando integraciones API para entidades financieras clave y desarrollando programas de capacitación en banca electrónica, soporte operativo y medios de pago durante más de dos años.
+
+                    <div class="contenedor-subroles">
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">01/2022 – 02/2022 | Gestor del Cambio / Formador Bancario</div>
+                            Formé equipos en la implantación de nuevos sistemas tecnológicos, gestionando integraciones API con entidades como Fiare, Vallbanc, B-NexT, RCI Renault Credit e ICF durante los procesos de onboarding. Proporcioné soporte funcional y resolución de incidencias en las plataformas Iris y Pórtico.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">02/2020 – 12/2021 | Formador de Formadores</div>
+                            Diseñé y ejecuté programas de capacitación en banca electrónica y medios de pago (Iris, Citrix), fortaleciendo las competencias de soporte y atención operativa de los equipos internos.
+                        </div>
+                    </div></div>
+                </div>
+
+                <!-- Registro 4: Banco Popular -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor banca</div>
+                            <div class="compania-info">Banco Popular · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>ago. 2012 - ene. 2019 · 6 años 6 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
+                    </div>
+                    <div class="descripcion">Asesoré a clientes en productos financieros (ahorro, inversión, préstamos, fondos y seguros), gestioné operaciones de caja y resolví incidencias operativas, contribuyendo a la fidelización y eficiencia en sucursal.</div>
+                </div>
+
+                <!-- Registro 5: Bankia -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Técnico CAU</div>
+                            <div class="compania-info">Bankia · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>ago. 2010 - ago. 2012 · 2 años 1 mes</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Presencial</span>
+                    </div>
+                    <div class="descripcion">Proporcioné soporte Helpdesk de 2º nivel, resolviendo incidencias técnicas en situ y remotas; configuré instalaciones críticas (PCs, impresoras, UMTS) y apoyé contratación de productos bancarios.</div>
+                </div>
+
+                <!-- Registro 6: ING -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Fraud Manager Means of Payment</div>
+                            <div class="compania-info">ING · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>abr. 2006 - ago. 2010 · 4 años 5 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España</span>
+                    </div>
+                    <div class="descripcion">Controlé fraudes en tarjetas y transferencias, gestionando alertas ACI, Redsys y 4B; elaboré mapas de riesgos, atendí banca online y cumplí normativa PBC/FT.</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Bloque de Educación y Formación Académica -->
+        <section class="seccion">
+            <h2 class="seccion-titulo">Educación</h2>
+            <div class="bloque-contenido">
+                
+                <!-- Educación 1 -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Master en Fraude y Gestión del Riesgo en los Medios de Pago</div>
+                            <div class="compania-info">Upper Academy</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>nov. 2016 – may. 2017</span>
+                    </div>
+                </div>
+
+                <!-- Educación 2 -->
+                <div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Ingeniería en Tecnologías de la Información</div>
+                            <div class="compania-info">Universidad Europea</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>sept. 2010 – jul. 2016</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
     </div>
+
+    <!-- MÓDULOS DE COMPORTAMIENTO INTERACTIVO REVISADOS -->
+    <script>
+        // --- CONMUTADOR DE TEMA DINÁMICO ---
+        const btnTema = document.getElementById('btn-tema');
+        const root = document.documentElement;
+        
+        btnTema.addEventListener('click', () => {
+            const temaActual = root.getAttribute('data-theme');
+            if (temaActual === 'dark') {
+                root.removeAttribute('data-theme');
+                btnTema.innerHTML = `
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                    <span>Modo Oscuro</span>
+                `;
+            } else {
+                root.setAttribute('data-theme', 'dark');
+                btnTema.innerHTML = `
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.22" x2="5.64" y2="17.78"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                    <span>Modo Claro</span>
+                `;
+            }
+        });
+
+        // --- SISTEMA DE IMPRESIÓN DIRECTA ---
+        const btnPdf = document.getElementById('btn-pdf');
+        btnPdf.addEventListener('click', () => {
+            window.print();
+        });
+    </script>
 </body>
 </html>
