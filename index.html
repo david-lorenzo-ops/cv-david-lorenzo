@@ -1,91 +1,37 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV David Lorenzo Caracuel - Consultor de Riesgos y Transformación Bancaria</title>
-    <style>
-        :root {
-            --bg-principal: #f8fafc;
-            --bg-tarjeta: #ffffff;
-            --texto-principal: #0f172a;
-            --texto-secundario: #475569;
-            --color-acentos: #2563eb; 
-            --color-acentos-hover: #1d4ed8;
-            --borde: #e2e8f0;
-            --sombra: 0 4px 20px -2px rgba(50, 50, 93, 0.08), 0 2px 8px -1px rgba(0, 0, 0, 0.04);
-            --sombra-hover: 0 12px 24px -4px rgba(50, 50, 93, 0.12), 0 4px 12px -2px rgba(0, 0, 0, 0.05);
-            --transicion: all 0.3s ease;
-            --gradiente: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-        }
-
-        [data-theme="dark"] {
-            --bg-principal: #090d16;
-            --bg-tarjeta: #131c2e;
-            --texto-principal: #f1f5f9;
-            --texto-secundario: #94a3b8;
-            --color-acentos: #38bdf8;
-            --color-acentos-hover: #7dd3fc;
-            --borde: #1e293b;
-            --sombra: 0 4px 30px rgba(0, 0, 0, 0.4);
-            --sombra-hover: 0 15px 35px rgba(0, 0, 0, 0.5);
-            --gradiente: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
-
-        body {
-            background-color: var(--bg-principal);
-            color: var(--texto-principal);
-            transition: var(--transicion);
-            line-height: 1.7;
-            padding: 3rem 1.5rem;
-        }
-
-        .contenedor { max-width: 900px; margin: 0 auto; }
-
-        .controles-superiores { display: flex; justify-content: flex-end; gap: 1rem; margin-bottom: 2.5rem; }
-
-        .btn {
-            background-color: var(--bg-tarjeta);
-            color: var(--texto-principal);
-            border: 1px solid var(--borde);
-            padding: 0.8rem 1.6rem;
-            border-radius: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            box-shadow: var(--sombra);
-            transition: var(--transicion);
-        }
-
-        .btn:hover { transform: translateY(-2px); border-color: var(--color-acentos); color: var(--color-acentos); }
-
-        header {
-            background-color: var(--bg-tarjeta);
-            padding: 3rem;
-            border-radius: 24px;
-            box-shadow: var(--sombra);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2.5rem;
-            margin-bottom: 3rem;
-            border: 1px solid var(--borde);
-            position: relative;
-            overflow: hidden;
-            transition: var(--transicion);
-        }
-
-        header::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 6px; background: var(--gradiente); }
-
-        .perfil-info { flex: 1; min-width: 300px; }
-        .perfil-info h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.5rem; background: var(--gradiente); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .perfil-info .titular { font-size: 1.2rem; color: var(--texto-principal); font-weight: 600; line-height: 1.5; margin-bottom: 1.5rem; }
-        .enlace-linkedin { display: inline-flex; align-items: center; color: var(--texto-secundario); text-decoration: none; font-weight: 500; padding: 0.5rem 1rem; border-radius: 8px; background-color: var(--bg-principal); border: 1px solid var(--borde); transition: var(--transicion); }
-        .enlace-linkedin:hover { color: var(--color-acentos); border-color: var(--color-acentos); transform: translateX(5px); }
-
-        .qr-contenedor { background: white; padding: 1rem; border-radius
+<div class="tarjeta-dinamica">
+                    <div class="tarjeta-encabezado">
+                        <div>
+                            <div class="puesto-titulo">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
+                            <div class="compania-info">Santander · Jornada completa</div>
+                        </div>
+                    </div>
+                    <div class="metadatos">
+                        <span>feb. 2019 - may. 2024 · 5 años 4 meses</span>
+                        <span>· Madrid, Comunidad de Madrid, España · Híbrido</span>
+                    </div>
+                    <div class="descripcion">(Roles Múltiples)
+                    Contribuí a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, fraude y digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas.
+                    
+                    <div class="contenedor-subroles">
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (10/2023 – 05/2024 | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago)</div>
+                            Imparto formación sobre herramientas digitales y tecnologías multidivisa en medios de pago, mejorando la adopción de plataformas; proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (02/2023 – 09/2023 | Gestor del Cambio)</div>
+                            Configuro reglas en motores de predicción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos; aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (10/2022 – 01/2023 | Consultor Digital)</div>
+                            Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas; automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (01/2022 – 08/2022 | Supervisor Remoto de Actividades Comerciales – SRAC)</div>
+                            Analizo fraudes en medios de pago, supervisando actividades comerciales remotas; controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.
+                        </div>
+                        <div class="sub-rol">
+                            <div class="sub-rol-titulo">• (02/2019 – 04/2019 | Cumplimiento Normativo – PBC)</div>
+                            Apoyo directo a la red comercial en prevención de blanqueo de capitales y financiación al terrorismo (PBC/FT), análisis de documentación y actualización de bases de datos.
+                        </div>
+                    </div></div>
+                </div>
