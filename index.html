@@ -6,24 +6,78 @@
     <title>CV - David Lorenzo Caracuel Matellán</title>
     <style>
         :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2b6cb0;
-            --accent-hover: #3182ce;
-            --text-color: #2d3748;
-            --bg-color: #edf2f7;
+            --bg-color: #f1f5f9;
             --card-bg: #ffffff;
-            --border-color: #e2e8f0;
+            --text-color: #1e293b;
+            --text-muted: #475569;
+            --primary-color: #0f172a;
+            --secondary-color: #1e40af;
+            --accent-hover: #2563eb;
+            --border-color: #cbd5e1;
             --hover-bg: #f8fafc;
+            --badge-bg: #e2e8f0;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            --btn-bg: #1e293b;
+            --btn-text: #ffffff;
+        }
+
+        body.dark-mode {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #cbd5e1;
+            --primary-color: #38bdf8;
+            --secondary-color: #60a5fa;
+            --accent-hover: #93c5fd;
+            --border-color: #334155;
+            --hover-bg: #334155;
+            --badge-bg: #334155;
+            --shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            --btn-bg: #38bdf8;
+            --btn-text: #0f172a;
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.75;
-            font-size: 1.15rem; /* Letra más grande para lectura óptima */
+            font-size: 1.15rem;
             color: var(--text-color);
             background-color: var(--bg-color);
             margin: 0;
             padding: 40px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .actions-bar {
+            max-width: 950px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
         }
 
         .container {
@@ -32,18 +86,22 @@
             background: var(--card-bg);
             padding: 50px;
             border-radius: 12px;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+            box-shadow: var(--shadow);
+            transition: background-color 0.3s ease;
         }
 
         header {
             border-bottom: 3px solid var(--primary-color);
             padding-bottom: 25px;
             margin-bottom: 35px;
-            transition: transform 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
         }
 
-        header:hover {
-            transform: translateY(-2px);
+        .header-main {
+            flex: 1;
         }
 
         h1 {
@@ -54,9 +112,45 @@
         }
 
         .contact-info {
-            font-size: 1.1rem;
-            color: #4a5568;
+            font-size: 1.05rem;
+            color: var(--text-muted);
             font-weight: 500;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px 25px;
+        }
+
+        .contact-info a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .qr-img {
+            width: 110px;
+            height: 110px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            padding: 4px;
+            background: #ffffff;
+        }
+
+        .qr-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 6px;
         }
 
         h2 {
@@ -70,9 +164,8 @@
             letter-spacing: 0.8px;
         }
 
-        /* Bloques interactivos al pasar el ratón */
         .job, .card-interactive {
-            background: #ffffff;
+            background: var(--card-bg);
             border-left: 4px solid transparent;
             border-radius: 8px;
             padding: 20px;
@@ -108,17 +201,12 @@
 
         .job-date {
             font-size: 1rem;
-            color: #4a5568;
+            color: var(--text-muted);
             font-weight: 600;
-            background: #edf2f7;
+            background: var(--badge-bg);
             padding: 4px 14px;
             border-radius: 20px;
             transition: background 0.2s ease, color 0.2s ease;
-        }
-
-        .job:hover .job-date {
-            background: #e2e8f0;
-            color: #1a202c;
         }
 
         ul {
@@ -129,11 +217,6 @@
         li {
             margin-bottom: 10px;
             font-size: 1.1rem;
-            transition: color 0.2s ease;
-        }
-
-        li:hover {
-            color: #1a202c;
         }
 
         .skills-list, .education-list {
@@ -145,24 +228,124 @@
             margin-bottom: 14px;
             padding: 14px 18px;
             border-radius: 6px;
-            background: #f7fafc;
+            background: var(--hover-bg);
             border-left: 3px solid transparent;
             transition: all 0.2s ease;
         }
 
         .skills-list li:hover, .education-list li:hover {
-            background: #edf2f7;
             border-left-color: var(--secondary-color);
             transform: translateX(5px);
         }
 
-        @media (max-width: 650px) {
+        /* CONFIGURACIÓN EXCLUSIVA PARA IMPRESIÓN / GENERACIÓN DE PDF */
+        @media print {
+            @page {
+                size: A4;
+                margin: 1.2cm;
+            }
+
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                font-size: 10pt !important;
+                line-height: 1.4 !important;
+                padding: 0 !important;
+            }
+
+            .no-print, .actions-bar {
+                display: none !important;
+            }
+
+            .container {
+                max-width: 100% !important;
+                padding: 0 !important;
+                box-shadow: none !important;
+                background: #ffffff !important;
+            }
+
+            header {
+                border-bottom: 2pt solid #000000 !important;
+                padding-bottom: 15px !important;
+                margin-bottom: 20px !important;
+            }
+
+            h1 {
+                color: #000000 !important;
+                font-size: 20pt !important;
+            }
+
+            h2 {
+                color: #000000 !important;
+                font-size: 13pt !important;
+                border-bottom: 1.5pt solid #000000 !important;
+                margin-top: 18pt !important;
+                margin-bottom: 10pt !important;
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+
+            .job-title {
+                color: #000000 !important;
+                font-size: 11pt !important;
+            }
+
+            .job-date {
+                background: none !important;
+                color: #000000 !important;
+                padding: 0 !important;
+                font-weight: bold !important;
+            }
+
+            .job, .card-interactive, .skills-list li, .education-list li {
+                box-shadow: none !important;
+                border: none !important;
+                background: transparent !important;
+                padding: 0 !important;
+                margin-bottom: 10pt !important;
+                transform: none !important;
+            }
+
+            /* Control estricto de saltos de página para evitar cortes limpios */
+            .job, section, header {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            li {
+                font-size: 10pt !important;
+                margin-bottom: 4pt !important;
+            }
+
+            a {
+                text-decoration: none !important;
+                color: #000000 !important;
+            }
+
+            .qr-img {
+                width: 80px !important;
+                height: 80px !important;
+                padding: 0 !important;
+                border: 1px solid #000000 !important;
+            }
+        }
+
+        @media (max-width: 700px) {
             body {
                 padding: 10px;
                 font-size: 1.05rem;
             }
             .container {
                 padding: 25px;
+            }
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .qr-container {
+                align-self: flex-start;
+                flex-direction: row;
+                gap: 12px;
             }
             .job-header {
                 flex-direction: column;
@@ -176,11 +359,25 @@
 </head>
 <body>
 
+<div class="actions-bar no-print">
+    <button onclick="toggleDarkMode()" id="theme-toggle" class="btn">🌙 Modo Noche</button>
+    <button onclick="window.print()" class="btn">🖨️ Imprimir / Guardar PDF</button>
+</div>
+
 <div class="container">
     <header>
-        <h1>David Lorenzo Caracuel Matellán</h1>
-        <div class="contact-info">
-            d.lorenzocara@hotmail.es | Teléfono: 636022785 | Madrid, España
+        <div class="header-main">
+            <h1>David Lorenzo Caracuel Matellán</h1>
+            <div class="contact-info">
+                <span>📧 d.lorenzocara@hotmail.es</span>
+                <span>📞 636022785</span>
+                <span>📍 Madrid, España</span>
+                <span>🔗 <a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank">linkedin.com/in/lorenzomatellan</a></span>
+            </div>
+        </div>
+        <div class="qr-container">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://www.linkedin.com/in/lorenzomatellan" alt="QR LinkedIn" class="qr-img">
+            <span class="qr-label">LinkedIn</span>
         </div>
     </header>
 
@@ -304,6 +501,18 @@
         </div>
     </section>
 </div>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const btn = document.getElementById('theme-toggle');
+        if (document.body.classList.contains('dark-mode')) {
+            btn.innerHTML = '☀️ Modo Día';
+        } else {
+            btn.innerHTML = '🌙 Modo Noche';
+        }
+    }
+</script>
 
 </body>
 </html>
