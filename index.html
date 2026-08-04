@@ -8,15 +8,18 @@
         :root {
             --primary-color: #1a365d;
             --secondary-color: #2b6cb0;
+            --accent-hover: #3182ce;
             --text-color: #2d3748;
-            --bg-color: #f7fafc;
+            --bg-color: #edf2f7;
             --card-bg: #ffffff;
             --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.6;
+            line-height: 1.75;
+            font-size: 1.15rem; /* Letra más grande para lectura óptima */
             color: var(--text-color);
             background-color: var(--bg-color);
             margin: 0;
@@ -24,77 +27,113 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 40px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            padding: 50px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
         }
 
         header {
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            border-bottom: 3px solid var(--primary-color);
+            padding-bottom: 25px;
+            margin-bottom: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        header:hover {
+            transform: translateY(-2px);
         }
 
         h1 {
             color: var(--primary-color);
-            margin: 0 0 10px 0;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
+            margin: 0 0 12px 0;
+            letter-spacing: -0.5px;
         }
 
         .contact-info {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: #4a5568;
-        }
-
-        .contact-info a {
-            color: var(--secondary-color);
-            text-decoration: none;
+            font-weight: 500;
         }
 
         h2 {
             color: var(--primary-color);
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 8px;
-            margin-top: 35px;
-            margin-bottom: 20px;
-            font-size: 1.4rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
-        .job {
-            margin-bottom: 25px;
+        /* Bloques interactivos al pasar el ratón */
+        .job, .card-interactive {
+            background: #ffffff;
+            border-left: 4px solid transparent;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 22px;
+            transition: all 0.25s ease-in-out;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+        }
+
+        .job:hover, .card-interactive:hover {
+            border-left-color: var(--secondary-color);
+            background-color: var(--hover-bg);
+            transform: translateX(6px) translateY(-2px);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.07);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: 12px;
         }
 
         .job-title {
-            font-weight: bold;
-            font-size: 1.1rem;
+            font-weight: 700;
+            font-size: 1.25rem;
             color: var(--secondary-color);
+            transition: color 0.2s ease;
+        }
+
+        .job:hover .job-title {
+            color: var(--accent-hover);
         }
 
         .job-date {
-            font-size: 0.9rem;
-            color: #718096;
+            font-size: 1rem;
+            color: #4a5568;
             font-weight: 600;
+            background: #edf2f7;
+            padding: 4px 14px;
+            border-radius: 20px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .job:hover .job-date {
+            background: #e2e8f0;
+            color: #1a202c;
         }
 
         ul {
-            margin: 8px 0;
-            padding-left: 20px;
+            margin: 10px 0;
+            padding-left: 22px;
         }
 
         li {
-            margin-bottom: 6px;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            transition: color 0.2s ease;
+        }
+
+        li:hover {
+            color: #1a202c;
         }
 
         .skills-list, .education-list {
@@ -103,18 +142,34 @@
         }
 
         .skills-list li, .education-list li {
-            margin-bottom: 10px;
+            margin-bottom: 14px;
+            padding: 14px 18px;
+            border-radius: 6px;
+            background: #f7fafc;
+            border-left: 3px solid transparent;
+            transition: all 0.2s ease;
         }
 
-        @media (max-width: 600px) {
+        .skills-list li:hover, .education-list li:hover {
+            background: #edf2f7;
+            border-left-color: var(--secondary-color);
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 650px) {
             body {
                 padding: 10px;
+                font-size: 1.05rem;
             }
             .container {
-                padding: 20px;
+                padding: 25px;
             }
             .job-header {
                 flex-direction: column;
+                gap: 6px;
+            }
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -131,9 +186,11 @@
 
     <section>
         <h2>Perfil Profesional</h2>
-        <p>
-            Profesional con más de 17 años de experiencia en el sector bancario y tecnológico, experto en gestión del cambio, formación, prevención de fraude, banca digital, análisis de riesgos crediticios y soporte funcional. Excelente dominio en medios de pago, cumplimiento normativo (PBC/FT), integración de sistemas vía APIs, valoración patrimonial y operativa bancaria. Trayectoria consolidada en entidades financieras de primer nivel.
-        </p>
+        <div class="card-interactive">
+            <p style="margin: 0;">
+                Profesional con más de 17 años de experiencia en el sector bancario y tecnológico, experto en gestión del cambio, formación, prevención de fraude, banca digital, análisis de riesgos crediticios y soporte funcional. Excelente dominio en medios de pago, cumplimiento normativo (PBC/FT), integración de sistemas vía APIs, valoración patrimonial y operativa bancaria. Trayectoria consolidada en entidades financieras de primer nivel.
+            </p>
+        </div>
     </section>
 
     <section>
@@ -242,7 +299,9 @@
 
     <section>
         <h2>Idiomas</h2>
-        <p><strong>Español:</strong> Nativo | <strong>Inglés:</strong> Intermedio</p>
+        <div class="card-interactive">
+            <p style="margin: 0;"><strong>Español:</strong> Nativo | <strong>Inglés:</strong> Intermedio</p>
+        </div>
     </section>
 </div>
 
