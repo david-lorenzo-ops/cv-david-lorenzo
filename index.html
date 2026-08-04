@@ -3,367 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV David Lorenzo Caracuel - Consultor de Riesgos y Transformación Bancaria</title>
+    <title>CV - David Lorenzo Caracuel Matellán</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2b6cb0;
+            --text-color: #2d3748;
+            --bg-color: #f7fafc;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
         }
-        
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
-            padding: 20px;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            margin: 0;
+            padding: 40px 20px;
         }
-        
-        body.dark-mode {
-            background: #1a1a1a;
-            color: #e0e0e0;
-        }
-        
+
         .container {
             max-width: 900px;
             margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
         }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
             margin-bottom: 30px;
-            gap: 20px;
         }
-        
-        .header-content h1 {
-            font-size: 32px;
-            margin-bottom: 5px;
+
+        h1 {
+            color: var(--primary-color);
+            margin: 0 0 10px 0;
+            font-size: 2.2rem;
         }
-        
-        .header-content p {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 10px;
-        }
-        
-        body.dark-mode .header-content p {
-            color: #aaa;
-        }
-        
+
         .contact-info {
-            font-size: 13px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            margin-bottom: 5px;
+            font-size: 0.95rem;
+            color: #4a5568;
         }
-        
+
         .contact-info a {
-            color: #0066cc;
+            color: var(--secondary-color);
             text-decoration: none;
         }
-        
-        body.dark-mode .contact-info a {
-            color: #66b3ff;
-        }
-        
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-        
-        .qr-section {
-            text-align: center;
-        }
-        
-        .qr-section img {
-            width: 100px;
-            height: 100px;
-            border: 1px solid #ddd;
-            padding: 5px;
-        }
-        
-        body.dark-mode .qr-section img {
-            border-color: #444;
-        }
-        
-        .qr-section p {
-            font-size: 12px;
-            margin-top: 5px;
-            color: #666;
-        }
-        
-        body.dark-mode .qr-section p {
-            color: #aaa;
-        }
-        
-        .controls {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            justify-content: flex-end;
-        }
-        
-        .btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 14px;
-            background: #0066cc;
-            color: white;
-            text-decoration: none;
-        }
-        
-        .btn:hover {
-            background: #0052a3;
-        }
-        
+
         h2 {
-            font-size: 18px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #0066cc;
+            color: var(--primary-color);
+            border-bottom: 1px solid var(--border-color);
             padding-bottom: 8px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        
+
         .job {
             margin-bottom: 25px;
         }
-        
-        .job-title {
-            font-weight: 600;
-            font-size: 15px;
-            color: #222;
-            margin-bottom: 2px;
-        }
-        
-        body.dark-mode .job-title {
-            color: #fff;
-        }
-        
-        .job-company {
-            font-size: 14px;
-            font-weight: 500;
-            color: #0066cc;
-        }
-        
-        .job-dates {
-            font-size: 13px;
-            color: #666;
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
             margin-bottom: 8px;
         }
-        
-        body.dark-mode .job-dates {
-            color: #aaa;
+
+        .job-title {
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: var(--secondary-color);
         }
-        
-        .job-description {
-            font-size: 13px;
-            line-height: 1.7;
-            color: #555;
+
+        .job-date {
+            font-size: 0.9rem;
+            color: #718096;
+            font-weight: 600;
         }
-        
-        body.dark-mode .job-description {
-            color: #ccc;
+
+        ul {
+            margin: 8px 0;
+            padding-left: 20px;
         }
-        
-        .job-description ul {
-            margin-left: 20px;
-            margin-top: 8px;
-        }
-        
-        .job-description li {
+
+        li {
             margin-bottom: 6px;
         }
-        
-        .education {
-            margin-bottom: 15px;
+
+        .skills-list, .education-list {
+            list-style-type: none;
+            padding-left: 0;
         }
-        
-        .education-title {
-            font-weight: 600;
-            font-size: 14px;
-            color: #222;
+
+        .skills-list li, .education-list li {
+            margin-bottom: 10px;
         }
-        
-        body.dark-mode .education-title {
-            color: #fff;
-        }
-        
-        .education-school {
-            font-size: 13px;
-            color: #666;
-        }
-        
-        body.dark-mode .education-school {
-            color: #aaa;
-        }
-        
-        .education-dates {
-            font-size: 12px;
-            color: #999;
-        }
-        
-        body.dark-mode .education-dates {
-            color: #777;
-        }
-        
-        @media print {
+
+        @media (max-width: 600px) {
             body {
-                padding: 0;
+                padding: 10px;
             }
-            .controls, .qr-section {
-                display: none;
+            .container {
+                padding: 20px;
             }
-        }
-        
-        @media (max-width: 768px) {
-            .header {
+            .job-header {
                 flex-direction: column;
-                align-items: flex-start;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            .contact-info {
-                font-size: 12px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="controls">
-        <button class="btn" onclick="toggleDarkMode()">Modo Oscuro</button>
-        <button class="btn" onclick="window.print()">Imprimir en PDF</button>
-    </div>
-    
-    <div class="container">
-        <div class="header">
-            <div class="header-content">
-                <h1>David Lorenzo Caracuel</h1>
-                <p>Consultor de Riesgos y Transformación Bancaria | CIRBE · Riesgo Crediticio · PBC · Gestión del Cambio · Procesos y Mejora Continua</p>
-                <div class="contact-info">
-                    <a href="https://www.linkedin.com/in/lorenzomatellan">linkedin.com/in/lorenzomatellan</a>
-                    <a href="tel:+34636022785">+34 636 022 785</a>
-                    <a href="mailto:d.lorenzocara@hotmail.es">d.lorenzocara@hotmail.es</a>
-                </div>
-            </div>
-            <div class="qr-section">
-                <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.linkedin.com/in/lorenzomatellan" alt="QR LinkedIn">
-                <p>Escanéame</p>
-            </div>
-        </div>
 
-        <h2>Experiencia</h2>
+<div class="container">
+    <header>
+        <h1>David Lorenzo Caracuel Matellán</h1>
+        <div class="contact-info">
+            d.lorenzocara@hotmail.es | Teléfono: 636022785 | Madrid, España
+        </div>
+    </header>
+
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p>
+            Profesional con más de 17 años de experiencia en el sector bancario y tecnológico, experto en gestión del cambio, formación, prevención de fraude, banca digital, análisis de riesgos crediticios y soporte funcional. Excelente dominio en medios de pago, cumplimiento normativo (PBC/FT), integración de sistemas vía APIs, valoración patrimonial y operativa bancaria. Trayectoria consolidada en entidades financieras de primer nivel.
+        </p>
+    </section>
+
+    <section>
+        <h2>Experiencia Profesional</h2>
 
         <div class="job">
-            <div class="job-title">Interventor en Arquia</div>
-            <div class="job-company">Arquia</div>
-            <div class="job-dates">may. 2026 - presente · Madrid, Comunidad de Madrid, España</div>
-            <div class="job-description">
-                Colegiado profesional en intervención y asesoramiento técnico en proyectos de arquitectura.
+            <div class="job-header">
+                <span class="job-title">Analista de Riesgos Crediticios | Bankinter</span>
+                <span class="job-date">06/2024 – 03/2026</span>
             </div>
-        </div>
-
-        <div class="job">
-            <div class="job-title">Analista de Riesgos de Crédito (No Consumo)</div>
-            <div class="job-company">Bankinter · Jornada completa</div>
-            <div class="job-dates">jun. 2024 - may. 2026 · 2 años · Madrid, Comunidad de Madrid, España · Híbrido</div>
-            <div class="job-description">
-                Analizo expedientes de riesgos crediticios no consumo con autonomía de decisión hasta 1,5 M€, aplicando criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero para clientes empresariales, patrimoniales y extranjeros de alto perfil. Las operaciones se canalizan directamente a través de la Dirección de Red y Partners estratégicos como Deloitte, Indra y Accenture.
-                <ul>
-                    <li>Gestiono una media de 10-12 expedientes diarios de alta complejidad (pignoraciones, ampliaciones, lombardos, créditos internacionales, líneas de crédito, subrogaciones, novaciones, extinciones de condominio, hipotecas suelo-edificación y operaciones especiales para farmacias o constructoras por Partner), con facultades autónomas de aprobación hasta 1,5 M€.</li>
-                    <li>Defiendo ante el Comité de Dirección operaciones de alto valor, influyendo en decisiones estratégicas para clientes corporativos y patrimoniales, incluidos inversores internacionales con adquisiciones en España.</li>
-                    <li>Evalúo valoraciones patrimoniales mediante Cuadro de Valoración Patrimonial Neto, analizando RARORAC, LTV/LTC, esfuerzo financiero, scoring, EBITDA, garantías reales, cash flow, PD/LGD, y contrastando datos con CIRBE y Credit Reports internacionales.</li>
-                    <li>Coordino con equipos internos de riesgos, negocio y cumplimiento para garantizar la conformidad regulatoria en materia de PBC/FT.</li>
-                </ul>
-            </div>
+            <ul>
+                <li>Análisis de 10-12 casos diarios de riesgos crediticios para productos no orientados al consumo (pignoraciones, ampliaciones de crédito, desbloqueo de cuentas, créditos lombardos, créditos internacionales, subrogaciones, novaciones, extinciones de condominio, créditos hipotecarios y financiación especial para farmacias y constructoras), gestionando facultades de hasta 1.500.000 €.</li>
+                <li>Presentación y defensa activa de expedientes superiores a 1.500.000 € ante el Comité de Dirección para la toma de decisiones conjuntas.</li>
+                <li>Evaluación de valoraciones patrimoniales mediante el análisis detallado de viabilidad, scoring, EBITDA, garantías reales, cash flow y Credit Reports para clientes extranjeros.</li>
+                <li>Coordinación estrecha con equipos internos para asegurar el estricto cumplimiento normativo en materia de PBC/FT.</li>
+            </ul>
         </div>
 
         <div class="job">
-            <div class="job-title">Gestor del Cambio, Consultor Digital y Formador en Tecnologías y Medios de Pago</div>
-            <div class="job-company">Santander · Jornada completa</div>
-            <div class="job-dates">feb. 2019 - may. 2024 · 5 años 4 meses · Madrid, Comunidad de Madrid, España · Híbrido</div>
-            <div class="job-description">
-                (Roles Múltiples) Contribuí a la transformación digital y cumplimiento normativo en Santander a través de roles clave en gestión del cambio, formación, fraude y digitalización, optimizando procesos, minimizando riesgos y acelerando la adopción tecnológica en medios de pago y plataformas (total acumulado de 5 años y 4 meses de actividad en la entidad).
-                <ul>
-                    <li><strong>(10/2023 – 05/2024 | Gestor del Cambio en Tecnologías Digitales / Formador en Medios de Pago)</strong><br>Imparto formación sobre herramientas digitales y tecnologías multidivisa en medios de pago, mejorando la adopción de plataformas; proporciono soporte funcional en proyectos de transformación tecnológica, optimizando procesos.</li>
-                    <li><strong>(02/2023 – 09/2023 | Gestor del Cambio)</strong><br>Configuro reglas en motores de predicción de riesgos y árboles de decisión; realizo pruebas de APIs para garantizar la integración de sistemas; facilito la transición a nuevos sistemas, actuando como enlace entre usuarios y equipos técnicos; aseguro una adopción fluida de plataformas mediante soporte y resolución de incidencias.</li>
-                    <li><strong>(10/2022 – 01/2023 | Consultor Digital)</strong><br>Diseño e implemento soluciones para digitalizar procesos bancarios de particulares y empresas; automatizo tareas operativas, mejorando la eficiencia y reduciendo tiempos.</li>
-                    <li><strong>(01/2022 – 08/2022 | Supervisor Remoto de Actividades Comerciales – SRAC)</strong><br>Analizo fraudes en medios de pago, supervisando actividades comerciales remotas; controlo operaciones bancarias, minimizando riesgos y asegurando la máxima calidad en las respuestas.</li>
-                    <li><strong>(02/2019 – 04/2019 | Cumplimiento Normativo – PBC)</strong><br>Apoyo directo a la red comercial en prevención de blanqueo de capitales y financiación al terrorismo (PBC/FT), análisis de documentación y actualización de bases de datos.</li>
-                </ul>
+            <div class="job-header">
+                <span class="job-title">Gestor del Cambio / Formador / Consultor Digital | Banco Santander</span>
+                <span class="job-date">01/2022 – 05/2024</span>
             </div>
+            <ul>
+                <li><strong>Formador en Medios de Pago (10/2023 – 05/2024):</strong> Impartición de programas de capacitación sobre herramientas digitales y tecnologías multidivisa en medios de pago, optimizando la adopción de las nuevas plataformas. Provisión de soporte funcional en proyectos críticos de transformación tecnológica.</li>
+                <li><strong>Gestor del Cambio (02/2023 – 09/2023):</strong> Configuración avanzada de reglas en motores de predicción de riesgos y estructuras de árboles de decisión. Realización de pruebas integrales de APIs para garantizar la correcta interconexión de sistemas y plataformas corporativas. Intermediación clave entre usuarios finales y equipos técnicos para asegurar una transición fluida.</li>
+                <li><strong>Consultor Digital / Product Owner (10/2022 – 01/2023):</strong> Diseño e implementación de soluciones digitales orientadas a optimizar la experiencia de usuario en los canales web y de App tanto para particulares como para empresas, logrando la automatización de tareas operativas complejas.</li>
+                <li><strong>Supervisor SRAC - Medios de Pago (01/2022 – 09/2022):</strong> Análisis en profundidad y gestión de fraudes y disputas en medios de pago recibidos a través del Banco de España. Supervisión remota de actividades comerciales para mitigar riesgos operativos y garantizar la excelencia en la contestación de expedientes.</li>
+            </ul>
         </div>
 
         <div class="job">
-            <div class="job-title">Gestor del Cambio y Formador Bancario</div>
-            <div class="job-company">Rural Servicios Informáticos S.L. (RSI) · Jornada completa</div>
-            <div class="job-dates">oct. 2019 - ene. 2022 · 2 años 4 meses · Madrid, Comunidad de Madrid, España · Híbrido</div>
-            <div class="job-description">
-                Participé en la migración tecnológica y en la formación de equipos dentro del ecosistema RSI, gestionando integraciones API para entidades financieras clave y desarrollando programas de capacitación en banca electrónica, soporte operativo y medios de pago durante más de dos años.
-                <ul>
-                    <li><strong>01/2022 – 02/2022 | Gestor del Cambio / Formador Bancario</strong><br>Formé equipos en la implantación de nuevos sistemas tecnológicos, gestionando integraciones API con entidades como Fiare, Vallbanc, B-NexT, RCI Renault Credit e ICF durante los procesos de onboarding. Proporcioné soporte funcional y resolución de incidencias en las plataformas Iris y Pórtico.</li>
-                    <li><strong>02/2020 – 12/2021 | Formador de Formadores</strong><br>Diseñé y ejecuté programas de capacitación en banca electrónica y medios de pago (Iris, Citrix), fortaleciendo las competencias de soporte y atención operativa de los equipos internos.</li>
-                </ul>
+            <div class="job-header">
+                <span class="job-title">Gestor del Cambio IT / Formador Bancario | Rural Servicios Informáticos (RSI)</span>
+                <span class="job-date">10/2019 – 01/2022</span>
             </div>
+            <ul>
+                <li>Gestión de la demanda en el departamento de Outsourcing CoreBanking y liderazgo en los procesos de capacitación de equipos para la migración a nuevos sistemas tecnológicos (IRIS).</li>
+                <li>Coordinación técnica y soporte funcional en la conexión de nuevas entidades financieras (Fiare, Vallbanc, B-Next, RCI Renault Credit, Cetelem, Renta4, ICF, etc.) vía APIs para procesos integrales de onboarding y alta de productos.</li>
+                <li>Desarrollo e impartición de programas avanzados de formación ("Formador de Formadores") en banca electrónica, medios de pago, herramientas Citrix y aplicaciones de activo, pasivo e intercambio, garantizando soporte operativo continuo presencial y remoto.</li>
+            </ul>
         </div>
 
         <div class="job">
-            <div class="job-title">Gestor banca</div>
-            <div class="job-company">Banco Popular · Jornada completa</div>
-            <div class="job-dates">ago. 2012 - ene. 2019 · 6 años 6 meses · Madrid, Comunidad de Madrid, España · Presencial</div>
-            <div class="job-description">
-                Asesoré a clientes en productos financieros (ahorro, inversión, préstamos, fondos y seguros), gestioné operaciones de caja y resolví incidencias operativas, contribuyendo a la fidelización y eficiencia en sucursal.
+            <div class="job-header">
+                <span class="job-title">Técnico de Cumplimiento Normativo (PBC) | Banco Santander</span>
+                <span class="job-date">01/2019 – 04/2019</span>
             </div>
+            <ul>
+                <li>Asesoramiento y soporte especializado a la red comercial en la implantación y aplicación de procedimientos de prevención de Blanqueo de Capitales y Financiación del Terrorismo (PBC/FT).</li>
+                <li>Estudio analítico de la documentación de la cartera de clientes según tipología de empresa y productos contratados, actualizando bases de datos y preparando auditorías internas.</li>
+            </ul>
         </div>
 
         <div class="job">
-            <div class="job-title">Técnico CAU</div>
-            <div class="job-company">Bankia · Jornada completa</div>
-            <div class="job-dates">ago. 2010 - ago. 2012 · 2 años 1 mes · Madrid, Comunidad de Madrid, España · Presencial</div>
-            <div class="job-description">
-                Proporcioné soporte Helpdesk de 2º nivel, resolviendo incidencias técnicas en situ y remotas; configuré instalaciones críticas (PCs, impresoras, UMTS) y apoyé contratación de productos bancarios.
+            <div class="job-header">
+                <span class="job-title">Gestor de Banca y Caja | Banco Popular</span>
+                <span class="job-date">08/2012 – 12/2018</span>
             </div>
+            <ul>
+                <li>Asesoramiento patrimonial integral a clientes particulares y empresas en productos de pasivo, inversión, préstamos y contratación de seguros.</li>
+                <li>Gestión diaria de la operativa de caja, control de efectivo, transferencias nacionales e internacionales, cuadre de terminales y resolución ágil de incidencias operativas.</li>
+            </ul>
         </div>
 
         <div class="job">
-            <div class="job-title">Fraud Manager Means of Payment</div>
-            <div class="job-company">ING · Jornada completa</div>
-            <div class="job-dates">abr. 2006 - ago. 2010 · 4 años 5 meses · Madrid, Comunidad de Madrid, España</div>
-            <div class="job-description">
-                Controlé fraudes en tarjetas y transferencias, gestionando alertas ACI, Redsys y 4B; elaboré mapas de riesgos, atendí banca online y cumplí normativa PBC/FT.
+            <div class="job-header">
+                <span class="job-title">Técnico CAU (Soporte de 2º Nivel) | Bankia</span>
+                <span class="job-date">08/2010 – 08/2012</span>
             </div>
+            <ul>
+                <li>Provisión de soporte Helpdesk de segundo nivel (remoto e in situ) para la gestión y resolución de incidencias informáticas críticas con afectación directa al negocio bancario.</li>
+                <li>Mantenimiento, instalación y configuración avanzada de puestos de trabajo (PCs, portátiles, sistemas operativos, periféricos) y soporte técnico especializado a la red de oficinas en aplicaciones corporativas y gestión de riesgos en medios de pago.</li>
+            </ul>
         </div>
 
-        <h2>Educación</h2>
-
-        <div class="education">
-            <div class="education-title">Master en Fraude y Gestión del Riesgo en los Medios de Pago</div>
-            <div class="education-school">Upper Academy</div>
-            <div class="education-dates">nov. 2016 – may. 2017</div>
+        <div class="job">
+            <div class="job-header">
+                <span class="job-title">Gestor de Fraude en Medios de Pago | ING</span>
+                <span class="job-date">04/2006 – 08/2010</span>
+            </div>
+            <ul>
+                <li>Especialista en la monitorización y control de fraudes, cargos no reconocidos y operaciones duplicadas en medios de pago mediante la gestión de alertas en sistemas ACI, Redsys y 4B.</li>
+                <li>Garantía del cumplimiento de la legislación vigente en PBC/FT, elaboración de mapas de riesgos detallados y reporte directo de comunicaciones sospechosas al Sepblac.</li>
+                <li>Atención especializada en banca online para la resolución de incidencias complejas de seguridad, gestión de claves, activación/bloqueo de tarjetas y disputas en cajeros automáticos.</li>
+            </ul>
         </div>
+    </section>
 
-        <div class="education">
-            <div class="education-title">Ingeniería en Tecnologías de la Información</div>
-            <div class="education-school">Universidad Europea</div>
-            <div class="education-dates">sept. 2010 – jul. 2016</div>
-        </div>
-    </div>
+    <section>
+        <h2>Formación Académica</h2>
+        <ul class="education-list">
+            <li><strong>Máster en Fraude y Gestión del Riesgo en los Medios de Pago</strong> – Upper Academy (11/2016 – 05/2017)</li>
+            <li><strong>Grado en Ingeniería en Tecnologías de la Información</strong> – Universidad Europea (09/2010 – 07/2016)</li>
+        </ul>
+    </section>
 
-    <script>
-        function toggleDarkMode() {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-        }
+    <section>
+        <h2>Habilidades Clave</h2>
+        <ul class="skills-list">
+            <li><strong>Áreas de Especialización:</strong> Análisis de Riesgos Crediticios (No Consumo), Prevención de Fraude & Medios de Pago, Cumplimiento Normativo (PBC/FT / SEPBLAC), Gestión del Cambio IT, Banca Digital, Consultoría Funcional.</li>
+            <li><strong>Herramientas y Entornos:</strong> APIs & Integración de Sistemas, SEPA, Redsys, Alertas ACI, Iris, Portico, Citrix, Norkom, Factiva, Filezilla, Excel Avanzado.</li>
+            <li><strong>Competencias Profesionales:</strong> Gestión de Equipos, Formación Técnica, Capacidad Analítica, Resolución de Problemas Complejos, Intermediación Técnico-Negocio.</li>
+        </ul>
+    </section>
 
-        if (localStorage.getItem('darkMode') === 'true') {
-            document.body.classList.add('dark-mode');
-        }
-    </script>
+    <section>
+        <h2>Idiomas</h2>
+        <p><strong>Español:</strong> Nativo | <strong>Inglés:</strong> Intermedio</p>
+    </section>
+</div>
+
 </body>
 </html>
