@@ -115,11 +115,11 @@
 
         h1.name-title {
             color: var(--primary-blue);
-            font-size: 2.5rem;
+            font-size: 2rem;
             font-weight: 800;
             margin: 0 0 8px 0;
-            letter-spacing: -0.6px;
-            line-height: 1.1;
+            letter-spacing: -0.4px;
+            line-height: 1.15;
         }
 
         .subhead-title {
@@ -299,6 +299,29 @@
         ul.job-bullets li { margin-bottom: 8px; font-size: 1rem; color: var(--text-main); }
         ul.job-bullets li strong { color: var(--primary-blue); }
 
+        .sub-timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--border-color); }
+        .sub-timeline li {
+            position: relative;
+            padding: 2px 0 14px 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .sub-timeline li:last-child { padding-bottom: 0; }
+        .sub-timeline li::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: 2px solid var(--card-bg);
+        }
+        .sub-timeline .sub-role { display: block; font-weight: 700; color: var(--primary-blue); margin-bottom: 2px; }
+        .sub-timeline .sub-date { display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-muted); margin-bottom: 3px; }
+        .sub-timeline .sub-desc { color: var(--text-main); }
+
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -331,6 +354,21 @@
             border-radius: 6px;
             font-size: 0.88rem;
             font-weight: 600;
+        }
+
+        .tag-featured {
+            background: var(--light-blue);
+            border: 1px solid var(--accent-blue);
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .tag-muted {
+            background: transparent;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.82rem;
         }
 
         .edu-item {
@@ -471,8 +509,8 @@
         <div class="header-main">
             <h1 class="name-title">David Lorenzo Caracuel Matellán</h1>
             <div class="subhead-title">
-                <span class="subhead-role">Interventor & Analista de Riesgos Crediticios</span>
-                <span class="subhead-specialties">CIRBE · PBC/FT · Gestión del Cambio · Medios de Pago & Banca Digital</span>
+                <span class="subhead-role">Consultor de Riesgos y Transformación Bancaria</span>
+                <span class="subhead-specialties">CIRBE · Riesgo Crediticio · PBC · Gestión del Cambio · Procesos y Mejora Continua</span>
             </div>
             <div class="contact-grid">
                 <div class="contact-item">✉️ <a href="mailto:d.lorenzocara@hotmail.es">d.lorenzocara@hotmail.es</a></div>
@@ -482,7 +520,7 @@
             </div>
         </div>
         <div class="qr-card">
-            <img src="https://api.qrserver.com/v1/create-qr-code/?size=100x100&data=https://www.linkedin.com/in/lorenzomatellan" alt="QR LinkedIn" class="qr-img">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=https://www.linkedin.com/in/lorenzomatellan" alt="QR LinkedIn" class="qr-img">
             <span class="qr-label">ESCANÉAME</span>
         </div>
     </header>
@@ -493,16 +531,12 @@
             <span class="highlight-label">Años de experiencia</span>
         </div>
         <div class="highlight-item">
-            <span class="highlight-number">1,5M€</span>
-            <span class="highlight-label">Autonomía de decisión</span>
-        </div>
-        <div class="highlight-item">
             <span class="highlight-number">7</span>
             <span class="highlight-label">Entidades bancarias</span>
         </div>
         <div class="highlight-item">
-            <span class="highlight-number">PBC/FT</span>
-            <span class="highlight-label">Cumplimiento normativo</span>
+            <span class="highlight-number">2006</span>
+            <span class="highlight-label">Trayectoria desde</span>
         </div>
     </div>
 
@@ -516,17 +550,17 @@
     <section>
         <h2 class="section-title">Experiencia Profesional</h2>
 
-        <!-- ARQUIA BANCA: actualizado según contrato real de sustitución -->
+        <!-- ARQUIA BANCA: actualizado según LinkedIn -->
         <div class="job-card">
             <div class="job-header">
                 <div>
-                    <span class="job-role">Gestor de Atención al Cliente y Caja (sustitución)</span>
-                    <span class="job-company">| Arquia Banca (Oficina C/ Barquillo, Madrid) — vía Adecco ETT</span>
+                    <span class="job-role">Gestor de Banca Privada</span>
+                    <span class="job-company">| Arquia Banca</span>
                 </div>
-                <span class="job-date">ago. 2026 – Actualidad</span>
+                <span class="job-date">jul. 2026 – Actualidad</span>
             </div>
             <ul class="job-bullets">
-                <li>Contrato temporal de <strong>sustitución/cobertura de baja</strong> en oficina de banca especializada en el colectivo de arquitectos y profesionales técnicos.</li>
+                <li>Asesoramiento y gestión integral de cartera de clientes de banca privada, especializada en el colectivo de arquitectos y profesionales técnicos.</li>
                 <li>Atención al cliente y operativa diaria de <strong>caja</strong>: gestión de efectivo, transferencias y cuadre de terminales.</li>
                 <li>Comercialización de productos y servicios financieros (cuentas, tarjetas, seguros, financiación) adaptados al perfil de cliente profesional.</li>
             </ul>
@@ -541,10 +575,10 @@
                 <span class="job-date">jun. 2024 – may. 2026</span>
             </div>
             <ul class="job-bullets">
-                <li>Análisis de expedientes de riesgos crediticios no consumo con autonomía de decisión hasta <strong>1.500.000 €</strong>, aplicando criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero para clientes corporativos, patrimoniales e inversores extranjeros de alto perfil.</li>
-                <li>Gestión media de <strong>10-12 expedientes diarios</strong> de alta complejidad (pignoraciones, ampliaciones de crédito, lombardos, créditos internacionales, novaciones, extinciones de condominio e hipotecas especiales por Partner).</li>
+                <li>Análisis de expedientes de riesgos crediticios no consumo con autonomía de decisión hasta <strong>1.500.000 €</strong>, para clientes corporativos, patrimoniales e inversores extranjeros de alto perfil. Aplico criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero.</li>
+                <li>Gestión media de <strong>10-12 expedientes diarios</strong> de alta complejidad: pignoraciones, ampliaciones de crédito, lombardos, créditos internacionales, novaciones, extinciones de condominio e hipotecas especiales por Partner.</li>
                 <li>Defensa activa ante el <strong>Comité de Dirección</strong> de operaciones superiores a 1,5 M€, influyendo en decisiones estratégicas de financiación.</li>
-                <li>Evaluación patrimonial mediante Cuadro de Valoración Patrimonial Neto, analizando scoring, EBITDA, garantías reales, cash flow, PD/LGD y contrastando datos con CIRBE y Credit Reports internacionales.</li>
+                <li>Evaluación patrimonial mediante Cuadro de Valoración Patrimonial Neto, contrastando datos con CIRBE y Credit Reports internacionales. Analizo scoring, EBITDA, garantías reales, cash flow y PD/LGD.</li>
                 <li>Coordinación estrecha con áreas de riesgos, negocio y cumplimiento normativo (PBC/FT).</li>
             </ul>
         </div>
@@ -556,14 +590,29 @@
                     <span class="job-role">Gestor del Cambio, Consultor Digital y Formador Tecnológico</span>
                     <span class="job-company">| Banco Santander</span>
                 </div>
-                <span class="job-date">feb. 2019 – may. 2024</span>
+                <span class="job-date">ene. 2022 – may. 2024</span>
             </div>
-            <ul class="job-bullets">
-                <li><strong>10/2023 – 05/2024 (Gestor del Cambio / Formador):</strong> Capítulos de capacitación en herramientas digitales y tecnologías multidivisa en medios de pago, optimizando la adopción de nuevas plataformas y dando soporte funcional a proyectos clave.</li>
-                <li><strong>02/2023 – 09/2023 (Gestor del Cambio):</strong> Configuración de reglas en motores de predicción de riesgos y árboles de decisión; ejecución de pruebas de APIs para integración de sistemas y enlace entre usuarios y equipos técnicos.</li>
-                <li><strong>10/2022 – 01/2023 (Consultor Digital):</strong> Diseño e implementación de soluciones digitales para automatizar procesos bancarios en canales web y App.</li>
-                <li><strong>01/2022 – 08/2022 (Supervisor SRAC):</strong> Análisis de fraudes y disputas en medios de pago canalizados a través del Banco de España y supervisión comercial remota.</li>
-                <li><strong>02/2019 – 04/2019 (Cumplimiento Normativo PBC):</strong> Soporte a la red comercial en prevención de blanqueo de capitales y financiación del terrorismo (PBC/FT).</li>
+            <ul class="sub-timeline">
+                <li>
+                    <span class="sub-date">10/2023 – 05/2024</span>
+                    <span class="sub-role">Gestor del Cambio / Formador</span>
+                    <span class="sub-desc">Formación en herramientas digitales y medios de pago multidivisa. Soporte funcional a la adopción de nuevas plataformas.</span>
+                </li>
+                <li>
+                    <span class="sub-date">02/2023 – 09/2023</span>
+                    <span class="sub-role">Gestor del Cambio</span>
+                    <span class="sub-desc">Configuración de motores de predicción de riesgos y árboles de decisión. Pruebas de APIs y enlace entre negocio y equipos técnicos.</span>
+                </li>
+                <li>
+                    <span class="sub-date">10/2022 – 01/2023</span>
+                    <span class="sub-role">Consultor Digital</span>
+                    <span class="sub-desc">Diseño de soluciones para digitalizar procesos bancarios en canales web y App.</span>
+                </li>
+                <li>
+                    <span class="sub-date">01/2022 – 08/2022</span>
+                    <span class="sub-role">Gestor SRAC</span>
+                    <span class="sub-desc">Análisis de fraudes y disputas en medios de pago. Supervisión comercial remota vía Banco de España.</span>
+                </li>
             </ul>
         </div>
 
@@ -574,7 +623,7 @@
                     <span class="job-role">Gestor del Cambio IT y Formador Bancario</span>
                     <span class="job-company">| Rural Servicios Informáticos (RSI)</span>
                 </div>
-                <span class="job-date">oct. 2019 – ene. 2022</span>
+                <span class="job-date">oct. 2019 – dic. 2021</span>
             </div>
             <ul class="job-bullets">
                 <li>Responsable de la <strong>gestión de la demanda</strong> en Outsourcing CoreBanking, liderando la formación de equipos durante la migración a los nuevos sistemas <strong>Iris y Pórtico</strong>.</li>
@@ -654,26 +703,26 @@
             <div class="skill-group">
                 <h3>Áreas Core</h3>
                 <div class="tags-container">
+                    <span class="tag tag-featured">Riesgo Crediticio (No Consumo)</span>
+                    <span class="tag tag-featured">CIRBE</span>
+                    <span class="tag tag-featured">PBC / FT / SEPBLAC</span>
+                    <span class="tag tag-featured">Gestión del Cambio IT</span>
                     <span class="tag">Intervención Bancaria</span>
-                    <span class="tag">Riesgo Crediticio (No Consumo)</span>
                     <span class="tag">Evaluación de Arquitectura & Proyectos</span>
-                    <span class="tag">CIRBE</span>
                     <span class="tag">Prevención de Fraude</span>
-                    <span class="tag">PBC / FT / SEPBLAC</span>
-                    <span class="tag">Gestión del Cambio IT</span>
                 </div>
             </div>
             <div class="skill-group accent-teal">
                 <h3>Tecnología & Entornos</h3>
                 <div class="tags-container">
-                    <span class="tag">APIs & Integraciones</span>
+                    <span class="tag tag-featured">APIs & Integraciones</span>
                     <span class="tag">Redsys & SEPA</span>
-                    <span class="tag">Alertas ACI</span>
-                    <span class="tag">Iris & Portico</span>
-                    <span class="tag">Citrix</span>
-                    <span class="tag">Norkom</span>
-                    <span class="tag">Factiva</span>
                     <span class="tag">Excel Avanzado</span>
+                    <span class="tag tag-muted">Alertas ACI</span>
+                    <span class="tag tag-muted">Iris & Portico</span>
+                    <span class="tag tag-muted">Citrix</span>
+                    <span class="tag tag-muted">Norkom</span>
+                    <span class="tag tag-muted">Factiva</span>
                 </div>
             </div>
         </div>
