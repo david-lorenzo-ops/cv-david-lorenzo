@@ -1,15 +1,754 @@
-<!-- ARQUIA BANCA: actualizado según LinkedIn -->
-        <div class="job-card">
-            <div class="job-header">
-                <div>
-                    <span class="job-role">Gestor de Banca Privada</span>
-                    <span class="job-company">| Arquia Banca (Sustitución vía Adecco)</span>
-                </div>
-                <span class="job-date">jul. 2026 – Actualidad</span>
-            </div>
-            <ul class="job-bullets">
-                <li>Asesoramiento y gestión integral de cartera de clientes de banca privada, especializada en el colectivo de arquitectos y profesionales técnicos.</li>
-                <li>Atención al cliente y operativa diaria de <strong>caja</strong>: gestión de efectivo, transferencias y cuadre de terminales.</li>
-                <li>Comercialización de productos y servicios financieros (cuentas, tarjetas, seguros, financiación) adaptados al perfil de cliente profesional.</li>
-            </ul>
-        </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Executive - David Lorenzo Caracuel Matellán</title>
+    <style>
+        :root {
+            --bg-body: #f1f5f9;
+            --card-bg: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --primary-blue: #1d4ed8;
+            --primary-dark: #0f172a;
+            --accent-blue: #2563eb;
+            --light-blue: #eff6ff;
+            --border-color: #e2e8f0;
+            --hover-bg: #f8fafc;
+            --badge-bg: #f1f5f9;
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.05);
+            --shadow-md: 0 12px 28px rgba(15, 23, 42, 0.08);
+            --btn-bg: #0f172a;
+            --btn-text: #ffffff;
+            --accent-teal: #0f766e;
+            --accent-teal-bg: #f0fdfa;
+            --accent-teal-border: #99f6e4;
+        }
+
+        body.dark-mode {
+            --bg-body: #090d16;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --primary-blue: #60a5fa;
+            --primary-dark: #38bdf8;
+            --accent-blue: #3b82f6;
+            --light-blue: #1e3a8a;
+            --border-color: #334155;
+            --hover-bg: #273549;
+            --badge-bg: #334155;
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+            --shadow-md: 0 12px 28px rgba(0, 0, 0, 0.4);
+            --btn-bg: #38bdf8;
+            --btn-text: #0f172a;
+            --accent-teal: #2dd4bf;
+            --accent-teal-bg: #134e4a;
+            --accent-teal-border: #0f766e;
+        }
+
+        * { box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            font-size: 1rem;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+            margin: 0;
+            padding: 40px 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .actions-bar {
+            max-width: 960px;
+            margin: 0 auto 20px auto;
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+        }
+
+        .btn {
+            background-color: var(--btn-bg);
+            color: var(--btn-text);
+            border: none;
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn:hover {
+            opacity: 0.92;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 50px 60px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
+        }
+
+        header {
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 30px;
+            margin-bottom: 35px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .header-main { flex: 1; }
+
+        h1.name-title {
+            color: var(--primary-blue);
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 0 8px 0;
+            letter-spacing: -0.4px;
+            line-height: 1.15;
+        }
+
+        .subhead-title {
+            margin-bottom: 20px;
+        }
+
+        .subhead-role {
+            display: block;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 4px;
+        }
+
+        .subhead-specialties {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+
+        .highlights-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .highlight-item {
+            flex: 1;
+            min-width: 140px;
+            background: var(--light-blue);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 12px 16px;
+            text-align: center;
+        }
+
+        .highlight-number {
+            display: block;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1.2;
+        }
+
+        .highlight-label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px 20px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        .contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--hover-bg);
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .contact-item a { color: var(--accent-blue); text-decoration: none; font-weight: 600; }
+        .contact-item a:hover { text-decoration: underline; }
+
+        .qr-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background: var(--hover-bg);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            flex-shrink: 0;
+        }
+
+        .qr-img { width: 100px; height: 100px; border-radius: 6px; background: #ffffff; padding: 4px; }
+
+        .qr-label {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        h2.section-title {
+            color: var(--primary-dark);
+            font-size: 1.35rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 35px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h2.section-title::before {
+            content: "";
+            display: inline-block;
+            width: 5px;
+            height: 22px;
+            background-color: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        .profile-card {
+            background: var(--hover-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-blue);
+            padding: 20px 24px;
+            border-radius: 10px;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .job-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-bottom: 20px;
+            transition: all 0.2s ease;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .job-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            background: var(--hover-bg);
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .job-role { font-size: 1.2rem; font-weight: 700; color: var(--text-main); }
+        .job-company { color: var(--primary-blue); font-weight: 700; }
+
+        .job-date {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            background: var(--light-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        ul.job-bullets { margin: 0; padding-left: 20px; }
+        ul.job-bullets li { margin-bottom: 8px; font-size: 1rem; color: var(--text-main); }
+        ul.job-bullets li strong { color: var(--primary-blue); }
+
+        .sub-timeline { list-style: none; margin: 0; padding: 0; border-left: 2px solid var(--border-color); }
+        .sub-timeline li {
+            position: relative;
+            padding: 2px 0 14px 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .sub-timeline li:last-child { padding-bottom: 0; }
+        .sub-timeline li::before {
+            content: "";
+            position: absolute;
+            left: -6px;
+            top: 6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-blue);
+            border: 2px solid var(--card-bg);
+        }
+        .sub-timeline .sub-role { display: block; font-weight: 700; color: var(--primary-blue); margin-bottom: 2px; }
+        .sub-timeline .sub-date { display: block; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: var(--text-muted); margin-bottom: 3px; }
+        .sub-timeline .sub-desc { color: var(--text-main); }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-group {
+            background: var(--hover-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 16px 20px;
+        }
+
+        .skill-group h3 {
+            margin: 0 0 10px 0;
+            font-size: 1rem;
+            color: var(--primary-blue);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tags-container { display: flex; flex-wrap: wrap; gap: 8px; }
+
+        .tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.88rem;
+            font-weight: 600;
+        }
+
+        .tag-featured {
+            background: var(--light-blue);
+            border: 1px solid var(--accent-blue);
+            color: var(--primary-blue);
+            font-weight: 700;
+        }
+
+        .tag-muted {
+            background: transparent;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.82rem;
+        }
+
+        .edu-item {
+            background: var(--hover-bg);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--primary-blue);
+            padding: 14px 20px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .edu-title { font-weight: 700; font-size: 1.05rem; }
+        .edu-school { color: var(--text-muted); font-weight: 500; }
+
+        .skill-group.accent-teal {
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        .skill-group.accent-teal h3 {
+            color: var(--accent-teal);
+        }
+
+        .lang-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .lang-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .lang-name {
+            width: 90px;
+            font-weight: 700;
+            font-size: 0.98rem;
+            flex-shrink: 0;
+        }
+
+        .lang-track {
+            flex: 1;
+            height: 10px;
+            background: var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .lang-fill {
+            height: 100%;
+            background: var(--primary-blue);
+            border-radius: 6px;
+        }
+
+        .lang-level {
+            width: 90px;
+            text-align: right;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            flex-shrink: 0;
+        }
+
+        @media (max-width: 640px) {
+            body { padding: 20px 12px; }
+
+            .container { padding: 30px 22px; }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .contact-grid { justify-content: center; }
+
+            .qr-card { align-self: center; }
+
+            h1.name-title { font-size: 1.9rem; }
+
+            .job-header { flex-direction: column; align-items: flex-start; }
+
+            .highlights-strip { flex-direction: column; }
+
+            .lang-name, .lang-level { width: 70px; }
+        }
+
+        @media print {
+            @page { size: A4; margin: 12mm 14mm 12mm 14mm; }
+            html, body { background: #ffffff !important; color: #000000 !important; font-size: 9.5pt !important; line-height: 1.4 !important; padding: 0 !important; margin: 0 !important; }
+            .no-print, .actions-bar, .highlights-strip { display: none !important; }
+            .container { max-width: 100% !important; width: 100% !important; padding: 0 !important; box-shadow: none !important; border: none !important; background: #ffffff !important; }
+            header { border-bottom: 2pt solid #1d4ed8 !important; padding-bottom: 12pt !important; margin-bottom: 14pt !important; display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: flex-start !important; }
+            h1.name-title { color: #1d4ed8 !important; font-size: 18pt !important; margin-bottom: 4pt !important; }
+            .subhead-title { font-size: 9.5pt !important; color: #333333 !important; margin-bottom: 8pt !important; }
+            .contact-grid { display: flex !important; flex-wrap: wrap !important; gap: 4pt 12pt !important; font-size: 8.5pt !important; }
+            .contact-item { background: none !important; border: none !important; padding: 0 !important; }
+            .contact-item a { color: #000000 !important; text-decoration: none !important; }
+            .qr-card { background: transparent !important; border: none !important; padding: 0 !important; }
+            .qr-img { width: 75px !important; height: 75px !important; border: 1px solid #cccccc !important; padding: 2px !important; }
+            .qr-label { font-size: 6.5pt !important; color: #555555 !important; }
+            h2.section-title { color: #000000 !important; font-size: 11pt !important; margin-top: 14pt !important; margin-bottom: 8pt !important; border-bottom: 1pt solid #000000 !important; padding-bottom: 3pt !important; page-break-after: avoid; break-after: avoid; }
+            h2.section-title::before { display: none !important; }
+            .profile-card { background: none !important; border: none !important; border-left: 2pt solid #1d4ed8 !important; padding: 0 0 0 8pt !important; font-size: 9.5pt !important; }
+            .job-card { background: none !important; border: none !important; border-bottom: 1pt dashed #cccccc !important; border-radius: 0 !important; padding: 0 0 8pt 0 !important; margin-bottom: 10pt !important; box-shadow: none !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+            .job-header { display: flex !important; flex-direction: row !important; justify-content: space-between !important; align-items: baseline !important; border-bottom: none !important; padding-bottom: 2pt !important; margin-bottom: 4pt !important; }
+            .job-role { font-size: 10pt !important; color: #000000 !important; }
+            .job-company { color: #1d4ed8 !important; }
+            .job-date { background: none !important; color: #000000 !important; font-size: 8.5pt !important; padding: 0 !important; font-weight: bold !important; }
+            ul.job-bullets { padding-left: 14pt !important; margin: 0 !important; }
+            ul.job-bullets li { font-size: 9pt !important; margin-bottom: 3pt !important; }
+            ul.job-bullets li strong { color: #000000 !important; }
+            .skills-grid { display: block !important; }
+            .skill-group { background: none !important; border: none !important; padding: 0 !important; margin-bottom: 6pt !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+            .skill-group h3 { font-size: 9pt !important; color: #000000 !important; margin-bottom: 3pt !important; }
+            .tags-container { display: flex !important; flex-wrap: wrap !important; gap: 4pt !important; }
+            .tag { border: 1px solid #bbb !important; background: none !important; font-size: 8pt !important; padding: 1pt 5pt !important; }
+            .edu-item { background: none !important; border: none !important; padding: 0 !important; margin-bottom: 6pt !important; page-break-inside: avoid !important; break-inside: avoid !important; }
+            .edu-title { font-size: 9.5pt !important; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="actions-bar no-print">
+    <button onclick="toggleDarkMode()" id="theme-toggle" class="btn">🌙 Modo Noche</button>
+    <button onclick="window.print()" class="btn">🖨️ Imprimir / Guardar en PDF</button>
+</div>
+
+<div class="container">
+    <header>
+        <div class="header-main">
+            <h1 class="name-title">David Lorenzo Caracuel Matellán</h1>
+            <div class="subhead-title">
+                <span class="subhead-role">Consultor de Riesgos y Transformación Bancaria</span>
+                <span class="subhead-specialties">CIRBE · Riesgo Crediticio · PBC · Gestión del Cambio · Procesos y Mejora Continua</span>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-item">✉️ <a href="mailto:d.lorenzocara@hotmail.es">d.lorenzocara@hotmail.es</a></div>
+                <div class="contact-item">📞 +34 636 022 785</div>
+                <div class="contact-item">📍 Madrid, España</div>
+                <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/lorenzomatellan" target="_blank">linkedin.com/in/lorenzomatellan</a></div>
+            </div>
+        </div>
+        <div class="qr-card">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=https://www.linkedin.com/in/lorenzomatellan" alt="QR LinkedIn" class="qr-img">
+            <span class="qr-label">ESCANÉAME</span>
+        </div>
+    </header>
+
+    <div class="highlights-strip no-print">
+        <div class="highlight-item">
+            <span class="highlight-number">17+</span>
+            <span class="highlight-label">Años de experiencia</span>
+        </div>
+        <div class="highlight-item">
+            <span class="highlight-number">7</span>
+            <span class="highlight-label">Entidades bancarias</span>
+        </div>
+        <div class="highlight-item">
+            <span class="highlight-number">2006</span>
+            <span class="highlight-label">Trayectoria desde</span>
+        </div>
+    </div>
+
+    <section>
+        <h2 class="section-title">Perfil Profesional</h2>
+        <div class="profile-card">
+            Profesional con más de 17 años de sólida trayectoria en el sector bancario y tecnológico. Especializado en análisis de riesgos crediticios, intervención operativa, prevención del fraude, medios de pago y gestión del cambio en proyectos de transformación digital. Experiencia contrastada en la evaluación y supervisión de expedientes de riesgo para perfiles técnicos, patrimoniales y corporativos, gestión de normativas complejas (PBC/FT), integración de sistemas vía APIs y soporte funcional de nivel superior en entidades financieras de primer nivel.
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Experiencia Profesional</h2>
+
+        <!-- ARQUIA BANCA: actualizado según LinkedIn -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Gestor de Banca Privada</span>
+                    <span class="job-company">| Arquia Banca</span>
+                </div>
+                <span class="job-date">jul. 2026 – Actualidad</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Asesoramiento y gestión integral de cartera de clientes de banca privada, especializada en el colectivo de arquitectos y profesionales técnicos.</li>
+                <li>Atención al cliente y operativa diaria de <strong>caja</strong>: gestión de efectivo, transferencias y cuadre de terminales.</li>
+                <li>Comercialización de productos y servicios financieros (cuentas, tarjetas, seguros, financiación) adaptados al perfil de cliente profesional.</li>
+            </ul>
+        </div>
+
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Analista de Riesgos de Crédito (No Consumo)</span>
+                    <span class="job-company">| Bankinter</span>
+                </div>
+                <span class="job-date">jun. 2024 – may. 2026</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Análisis de expedientes de riesgos crediticios no consumo con autonomía de decisión hasta <strong>1.500.000 €</strong>, para clientes corporativos, patrimoniales e inversores extranjeros de alto perfil. Aplico criterios de RARORAC, LTV/LTC, CIRBE y esfuerzo financiero.</li>
+                <li>Gestión media de <strong>10-12 expedientes diarios</strong> de alta complejidad: pignoraciones, ampliaciones de crédito, lombardos, créditos internacionales, novaciones, extinciones de condominio e hipotecas especiales por Partner.</li>
+                <li>Defensa activa ante el <strong>Comité de Dirección</strong> de operaciones superiores a 1,5 M€, influyendo en decisiones estratégicas de financiación.</li>
+                <li>Evaluación patrimonial mediante Cuadro de Valoración Patrimonial Neto, contrastando datos con CIRBE y Credit Reports internacionales. Analizo scoring, EBITDA, garantías reales, cash flow y PD/LGD.</li>
+                <li>Coordinación estrecha con áreas de riesgos, negocio y cumplimiento normativo (PBC/FT).</li>
+            </ul>
+        </div>
+
+        <!-- SANTANDER: sin cambios, pendiente de resolver fechas -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Gestor del Cambio, Consultor Digital y Formador Tecnológico</span>
+                    <span class="job-company">| Banco Santander</span>
+                </div>
+                <span class="job-date">ene. 2022 – may. 2024</span>
+            </div>
+            <ul class="sub-timeline">
+                <li>
+                    <span class="sub-date">10/2023 – 05/2024</span>
+                    <span class="sub-role">Gestor del Cambio / Formador</span>
+                    <span class="sub-desc">Formación en herramientas digitales y medios de pago multidivisa. Soporte funcional a la adopción de nuevas plataformas.</span>
+                </li>
+                <li>
+                    <span class="sub-date">02/2023 – 09/2023</span>
+                    <span class="sub-role">Gestor del Cambio</span>
+                    <span class="sub-desc">Configuración de motores de predicción de riesgos y árboles de decisión. Pruebas de APIs y enlace entre negocio y equipos técnicos.</span>
+                </li>
+                <li>
+                    <span class="sub-date">10/2022 – 01/2023</span>
+                    <span class="sub-role">Consultor Digital</span>
+                    <span class="sub-desc">Diseño de soluciones para digitalizar procesos bancarios en canales web y App.</span>
+                </li>
+                <li>
+                    <span class="sub-date">01/2022 – 08/2022</span>
+                    <span class="sub-role">Gestor SRAC</span>
+                    <span class="sub-desc">Análisis de fraudes y disputas en medios de pago. Supervisión comercial remota vía Banco de España.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- RSI: reestructurado con jerarquía responsabilidad / método / resultado -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Gestor del Cambio IT y Formador Bancario</span>
+                    <span class="job-company">| Rural Servicios Informáticos (RSI)</span>
+                </div>
+                <span class="job-date">oct. 2019 – dic. 2021</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Responsable de la <strong>gestión de la demanda</strong> en Outsourcing CoreBanking, liderando la formación de equipos durante la migración a los nuevos sistemas <strong>Iris y Pórtico</strong>.</li>
+                <li>Coordinación técnica e <strong>integración de sistemas vía APIs</strong> para el onboarding de nuevas entidades financieras: Fiare, Vallbanc, B-Next, RCI Renault Credit, Cetelem, Renta4, ICF, entre otras.</li>
+                <li>Diseño e impartición de programas <strong>"Formador de Formadores"</strong> en banca electrónica, medios de pago y entornos Citrix, escalando el conocimiento a varios equipos comerciales.</li>
+            </ul>
+        </div>
+
+        <!-- BANCO POPULAR: reestructurado, más peso dado que es la etapa más larga -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Gestor de Banca y Caja</span>
+                    <span class="job-company">| Banco Popular</span>
+                </div>
+                <span class="job-date">ago. 2012 – ene. 2019</span>
+            </div>
+            <ul class="job-bullets">
+                <li><strong>Asesoramiento patrimonial</strong> a cartera de clientes en productos de ahorro, inversión, préstamos, fondos y seguros.</li>
+                <li>Gestión integral de la <strong>operativa diaria de caja</strong>: control de efectivo, transferencias nacionales e internacionales y cuadre de terminales.</li>
+                <li>Casi <strong>7 años de continuidad</strong> en la misma oficina, combinando atención comercial y operativa bajo los mismos criterios de riesgo y cumplimiento normativo.</li>
+            </ul>
+        </div>
+
+        <div class="job-card" style="padding-top: 16px; padding-bottom: 16px;">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Técnico CAU (Soporte de 2º Nivel)</span>
+                    <span class="job-company">| Bankia</span>
+                </div>
+                <span class="job-date">ago. 2010 – ago. 2012</span>
+            </div>
+            <ul class="job-bullets">
+                <li>Soporte <strong>Helpdesk de 2º nivel</strong> (remoto e in situ) para resolución de incidencias tecnológicas críticas de negocio.</li>
+                <li>Configuración, instalación y mantenimiento de puestos de trabajo (PCs, periféricos, sistemas operativos) para toda la red de oficinas.</li>
+            </ul>
+        </div>
+
+        <!-- ING: reestructurado con referencia normativa destacada -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <span class="job-role">Gestor de Fraude en Medios de Pago</span>
+                    <span class="job-company">| ING</span>
+                </div>
+                <span class="job-date">abr. 2006 – ago. 2010</span>
+            </div>
+            <ul class="job-bullets">
+                <li><strong>Monitorización y gestión de alertas de fraude</strong> en tarjetas y transferencias mediante los sistemas ACI, Redsys y 4B.</li>
+                <li>Elaboración de mapas de riesgo y atención de incidencias en banca online.</li>
+                <li>Cumplimiento normativo <strong>PBC/FT</strong> con reporte de operaciones sospechosas al <strong>SEPBLAC</strong>.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Formación Académica</h2>
+        <div class="edu-item">
+            <div>
+                <div class="edu-title">Máster en Fraude y Gestión del Riesgo en los Medios de Pago</div>
+                <div class="edu-school">Upper Academy</div>
+            </div>
+            <span class="job-date">11/2016 – 05/2017</span>
+        </div>
+        <div class="edu-item">
+            <div>
+                <div class="edu-title">Ingeniería en Tecnologías de la Información</div>
+                <div class="edu-school">Universidad Europea</div>
+            </div>
+            <span class="job-date">09/2010 – 07/2016</span>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Habilidades Clave & Competencias</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Áreas Core</h3>
+                <div class="tags-container">
+                    <span class="tag tag-featured">Riesgo Crediticio (No Consumo)</span>
+                    <span class="tag tag-featured">CIRBE</span>
+                    <span class="tag tag-featured">PBC / FT / SEPBLAC</span>
+                    <span class="tag tag-featured">Gestión del Cambio IT</span>
+                    <span class="tag">Intervención Bancaria</span>
+                    <span class="tag">Evaluación de Arquitectura & Proyectos</span>
+                    <span class="tag">Prevención de Fraude</span>
+                </div>
+            </div>
+            <div class="skill-group accent-teal">
+                <h3>Tecnología & Entornos</h3>
+                <div class="tags-container">
+                    <span class="tag tag-featured">APIs & Integraciones</span>
+                    <span class="tag">Redsys & SEPA</span>
+                    <span class="tag">Excel Avanzado</span>
+                    <span class="tag tag-muted">Alertas ACI</span>
+                    <span class="tag tag-muted">Iris & Portico</span>
+                    <span class="tag tag-muted">Citrix</span>
+                    <span class="tag tag-muted">Norkom</span>
+                    <span class="tag tag-muted">Factiva</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section-title">Idiomas</h2>
+        <div class="profile-card">
+            <div class="lang-bars">
+                <div class="lang-row">
+                    <span class="lang-name">Español</span>
+                    <div class="lang-track"><div class="lang-fill" style="width: 100%;"></div></div>
+                    <span class="lang-level">Nativo</span>
+                </div>
+                <div class="lang-row">
+                    <span class="lang-name">Inglés</span>
+                    <div class="lang-track"><div class="lang-fill" style="width: 55%;"></div></div>
+                    <span class="lang-level">Intermedio</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+    function toggleDarkMode() {
+        document.body.classList.toggle('dark-mode');
+        const btn = document.getElementById('theme-toggle');
+        if 
